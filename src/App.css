@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+.section1{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-direction: column;
+  height: calc(50vh - 60px);
+  text-align: center;
+  position: relative; 
+}
+
+.tituloSection1{
+  margin: 0px;
+  color: rgb(32, 35, 41);
+  border: none;
+  font-weight: 900;
+  z-index: 1;
+  font-size: 5.625rem;
+}
+
+.fotoSection1{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.section2{
+  padding: 4.5rem 0px;
+  background: rgb(32, 35, 41);
+}
