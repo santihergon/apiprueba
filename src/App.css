@@ -93,3 +93,57 @@
   margin-right: 0px;
   background: rgb(32, 35, 41);
 }
+
+
+
+.status {
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.status__icon {
+  height: 0.5rem !important;
+  width: 0.5rem !important;
+  margin-right: 0.375rem !important;
+  border-radius: 50% !important;
+}
+
+.vivo {
+  background: rgb(85, 204, 68) !important;
+}
+
+.muerto {
+  background: rgb(214, 61, 46) !important;
+}
+
+.desconocido {
+  background: rgb(158, 158, 158) !important;
+
+  --pink: #d30cb8;
+  --pink-1: #be0ba6;
+  --pink-2: #a90a93;
+  --pink-3: #940881;
+  --pink-4: #7f076e;
+  --pink-5: #6a065c;
+  --pink-6: #54054a;
+  --pink-7: #3f0437;
+  --pink-8: #2a0225;
+  --pink-9: #150112;
+  --pink-pastel: #3c345c;
+  --pink-grey: #72576f;
+  --pink-bubble-gum: #fd5afa;
+  
+  --blue: #6df1d8;
+  --blue-1: #62d9c2;
+  --blue-2: #57c1ad;
+  --blue-3: #4ca997;
+  --blue-4: #419182;
+  --blue-5: #37796c;
+  --blue-6: #2c6056;
+  --blue-7: #214841;
+  --blue-8: #16302b;
+  --blue-9: #0b1816;
+  --blue-pastel: #5da4a6;
+}
