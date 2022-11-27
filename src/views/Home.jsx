@@ -28,29 +28,34 @@ export function Home() {
   const [showElement, setShowElement] = useState("character");
   const [statusFilter, setStatusFilter] = useState(null);
   const [page, setPage] = useState(1);
+  const [nPages, setNPages] = useState(1);
+
 
   const handlePageChange = (event, value) => {
     setPage(value);
-    llamaApi();
+    llamaApi(value);
   };
   const handleChange = (event, newShowElement) => {
     setShowElement(newShowElement);
   };
 
-  const llamaApi = () => {
+  const llamaApi = (apiPage) => {
     // let characterList = JSON.parse(localStorage.getItem("characterList"));
     // let episodeList = JSON.parse(localStorage.getItem("episodeList"));
     let characterList = null;
 
     axios
-      .get(`https://rickandmortyapi.com/api/character/?page=${page}`)
+      .get(`https://rickandmortyapi.com/api/character/?page=${apiPage}`)
 
       .then(function (response) {
         // handle success
         console.log(JSON.stringify(response));
-        characterList = response.data.results;
+        console.log(JSON.stringify(response.data.info.pages));
+
         console.log('==========================')
-        console.log(response.data.results)
+        setNPages(response.data.info.pages)
+        console.log(response.data.results);
+        characterList = response.data.results;
         setCharacters(characterList);
         //localStorage.setItem("characterList", JSON.stringify(characterList));
         //localStorage.setItem("name", JSON.stringify(characterList[0].name));
@@ -101,7 +106,7 @@ export function Home() {
     console.log("Estamos en useEfect");
 
     if (!hasCalledAPI) {
-      llamaApi();
+      llamaApi(1);
       sethasCalledAPI(true);
     }
   }, [characters, hasCalledAPI]);
@@ -180,7 +185,7 @@ export function Home() {
           </Grid>
           <Stack spacing={2} style={{ backgroundColor: "white" }}>
             <Typography>Page: {page}</Typography>
-            <Pagination count={10} page={page} onChange={handlePageChange} />
+            <Pagination count={nPages} page={page} onChange={handlePageChange} />
           </Stack>
         </Container>
       </section>

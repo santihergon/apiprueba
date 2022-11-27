@@ -19,7 +19,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Chip from "@mui/material/Chip";
 
 export function Character(props) {
-    console.log('Estamos en character y recibimis');
+    console.log('Estamos en character y recibimos');
     console.log(props);
 
     
@@ -50,16 +50,7 @@ export function Character(props) {
                             </Typography>
                             <Typography variant="h5" component="div">
                                 <span className="status">
-                                    <span
-                                        className={
-                                            "status__icon " +
-                                            (character.status === "Alive"
-                                                ? "vivo"
-                                                : character.status === "Dead"
-                                                    ? "muerto"
-                                                    : "desconocido")
-                                        }
-                                    ></span>
+                                    <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido") } ></span>
                                     <Chip label={character.status} onClick={handleClick} />
                                 </span>
                             </Typography>
