@@ -18,9 +18,9 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Chip from "@mui/material/Chip";
 
-export function Character(props) {
-    //console.log('Estamos en character y recibimos');
-    //console.log(props);
+export function Dead(props) {
+    console.log('Estamos en character y recibimos');
+    console.log(props);
 
     const history = useHistory();
     
@@ -69,4 +69,4 @@ export function Character(props) {
     );
 }
 
-export default Character;
+export default Dead;

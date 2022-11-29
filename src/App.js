@@ -8,9 +8,10 @@ import {
 
 
 import "./App.css";
+import Header from './layout/Header'
 import Users from "./views/Users.jsx";
 import About from "./views/About.jsx";
-import Home from "./views/Home.jsx";
+import CharacterList from "./views/CharacterList.jsx";
 import Alive from "./views/Alive.jsx";
 
 
@@ -21,7 +22,8 @@ function App() {
 
     <Router>
       <div>
-        <nav>
+      <Header />
+        {/* <nav>
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -36,7 +38,7 @@ function App() {
               <Link to="/users">Users</Link>
             </li>
           </ul>
-        </nav>
+        </nav> */}
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
@@ -47,11 +49,20 @@ function App() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/users">
+          <Route path="/users"> 
             <Users />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route exact path="/">
+            <CharacterList />
+          </Route>
+          <Route exact path="/characters">
+            <CharacterList />
+          </Route>
+          {/* <Route exact path="/characters/:live_status/">
+            <CharacterList />
+          </Route> */}
+          <Route path="*">
+            <h1>No encontrado</h1>
           </Route>
         </Switch>
       </div>

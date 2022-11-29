@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link, useHistory
 } from "react-router-dom";
 
 
@@ -15,8 +15,10 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import Pagination from "@mui/material/Pagination";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import ToggleButton from '@mui/material/ToggleButton';
@@ -25,36 +27,42 @@ import Chip from '@mui/material/Chip';
 import RickandMorty from "../components/icons/RickandMortySvg";
 
 
-export function Home() {
+export function Home(props) {
 
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [episodes, setEpisodes] = useState([]);
   const [showElement, setShowElement] = useState("character");
   const [statusFilter, setStatusFilter] = useState(null);
+  const [page, setPage] = useState(1);
+  const [nPages, setNPages] = useState(1);
+  const history = useHistory();
+  const { character } = props;
 
 
-  const handleChange = (event, newShowElement) => {
-    setShowElement(newShowElement);
+  const handlePageChange = (event, value) => {
+    setPage(value);
+    llamaApi(value);
+  };
+  const handleChange = () => {
+    history.push(`/${character.status}`);
   };
 
 
-  const llamaApi = () => {
+  const llamaApi = (apiPage) => {
 
     let characterList = JSON.parse(localStorage.getItem("characterList"));
-    let episodeList = JSON.parse(localStorage.getItem("episodeList"));
 
     if (!characterList) {
-      axios.get("https://rickandmortyapi.com/api/character/?page=2&name=rick&status=alive")
+      axios.get(`https://rickandmortyapi.com/api/character/?page=${apiPage}&status=alive`)
 
         .then(function (response) {
           // handle success
           console.log(JSON.stringify(response));
           characterList = (response.data.results);
+          setCharacters(characterList);
 
-          localStorage.setItem("characterList", JSON.stringify(characterList));
-          localStorage.setItem("name", JSON.stringify(characterList[0].name));
-
+          setNPages(response.data.info.pages) 
         })
         .catch(function (error) {
           // handle error
@@ -65,40 +73,14 @@ export function Home() {
         });
     }
 
-    if (!episodeList) {
-      axios.get("https://rickandmortyapi.com/api/episode")
+    //setCharacters(characterList);
 
-        .then(function (response) {
-          // handle success
-          console.log(JSON.stringify(response));
-          episodeList = (response.data.results);
-
-          localStorage.setItem("episodeList", JSON.stringify(episodeList));
-          localStorage.setItem("nameEpisode", JSON.stringify(episodeList[0].name));
-
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-        .finally(function () {
-          // always executed
-        });
-    }
-
-
-
-    setCharacters(characterList);
-    setEpisodes(episodeList);
-
-    // setCharacters(prevProducts => ([...prevProducts, []]));
 
 
     let nameCharacter = JSON.parse(localStorage.getItem("nameCharacter"));
     console.log("nameCharacter: " + nameCharacter);
 
-    let nameEpisode = JSON.parse(localStorage.getItem("nameEpisode"));
-    console.log("nameEpisode: " + nameEpisode);
+
   };
 
 
@@ -106,8 +88,8 @@ export function Home() {
     console.log("Estamos en useEfect");
 
     if (!hasCalledAPI) {
-      llamaApi();
-      sethasCalledAPI(true);
+      llamaApi(1);
+      sethasCalledAPI(true);  
 
     }
   }, [characters, hasCalledAPI]);
@@ -118,9 +100,6 @@ export function Home() {
     color: "#f5f5f5",
   }));
 
-  // const Personaje = () => {
-  //   return <strong>prueba</strong>;
-  // };
 
   const handleClick = () => {
     console.info('You clicked the Chip.');
@@ -150,29 +129,7 @@ export function Home() {
 
   <section id="section3" className="section3">
   
-  <Container>
-      <Grid container spacing={2}>
-            {
-            showElement==="episode" &&
-            episodes !== null &&
-            episodes.map((episode) => (
-            <Grid item xs={1} sm={2} md={4} key={episode.id}>
-              {/* <Personaje>xs=8</Personaje> */}
-              <MiCard sx={{ minWidth: 275 }}>
-                <CardContent>
-                  <div className='characterCardContent'>
-                    <div className='section1CardContent'>
-                      <Typography variant="h5" component="div">
-                      {episode.name}
-                        </Typography>
-                    </div>
-                  </div>
-                </CardContent>
-              </MiCard>
-            </Grid>
-          ))}
-      </Grid>
-    </Container>
+
 
     <Container>
       <Grid container spacing={2}>
@@ -217,6 +174,10 @@ export function Home() {
             </Grid>
           ))}
       </Grid>
+      <Stack spacing={2} style={{ backgroundColor: "white" }}>
+            <Typography>Page: {page}</Typography>
+            <Pagination count={nPages} page={page} onChange={handlePageChange} />
+      </Stack>
     </Container>
   </section>
 </main>;

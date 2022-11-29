@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "../App.css";
+import { StyledEngineProvider } from '@mui/material/styles';
+//import Header from "../layout/Header";
 import axios from "axios";
 import { styled } from "@mui/material";
 import Card from "@mui/material/Card";
@@ -14,14 +16,15 @@ import Stack from "@mui/material/Stack";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Chip from "@mui/material/Chip";
+
+
 import RickandMorty from "../components/icons/RickandMortySvg";
 import Character from "../components/Character";
 
-export function Home() {
+export function CharacterList() {
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [episodes, setEpisodes] = useState([]);
@@ -29,8 +32,10 @@ export function Home() {
   const [statusFilter, setStatusFilter] = useState(null);
   const [page, setPage] = useState(1);
   const [nPages, setNPages] = useState(1);
+  const [dead, setDead] = useState(false);
 
 
+ 
   const handlePageChange = (event, value) => {
     setPage(value);
     llamaApi(value);
@@ -90,7 +95,7 @@ export function Home() {
 
         */
 
-    
+
     //setEpisodes(episodeList);
 
     // setCharacters(prevProducts => ([...prevProducts, []]));
@@ -122,14 +127,7 @@ export function Home() {
 
   return (
     <main>
-      <section id="section1" className="section1">
-        <h1 className="tituloSection1">The Rick and Morty API</h1>
-        <div className="fotoSection1">
-          <RickandMorty
-            style={{ fill: "#f5f5f5", width: "100%", height: "100%" }}
-          />
-        </div>
-      </section>
+      
 
       <section id="section2" className="section2">
         <ToggleButtonGroup
@@ -193,4 +191,4 @@ export function Home() {
   );
 }
 
-export default Home;
+export default CharacterList;
