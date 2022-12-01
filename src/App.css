@@ -84,6 +84,7 @@
   font-weight: 800 !important;
   margin-right: 10px !important;
 }
+
 .btnEposideSection2:hover {
   background: #ff9800 !important;
   color: white !important;
@@ -94,6 +95,20 @@
   background: rgb(32, 35, 41);
 }
 
+@media (max-width: 55.625em){
+
+  .tituloSection1 {
+    font-size: 3.75rem !important;
+}
+
+}
+@media (max-width: 1700px){
+
+  .tituloSection1 {
+    font-size: 4.25rem;
+  }
+
+}
 
 
 .status {
@@ -120,30 +135,19 @@
 
 .desconocido {
   background: rgb(158, 158, 158) !important;
+}
 
-  --pink: #d30cb8;
-  --pink-1: #be0ba6;
-  --pink-2: #a90a93;
-  --pink-3: #940881;
-  --pink-4: #7f076e;
-  --pink-5: #6a065c;
-  --pink-6: #54054a;
-  --pink-7: #3f0437;
-  --pink-8: #2a0225;
-  --pink-9: #150112;
-  --pink-pastel: #3c345c;
-  --pink-grey: #72576f;
-  --pink-bubble-gum: #fd5afa;
-  
-  --blue: #6df1d8;
-  --blue-1: #62d9c2;
-  --blue-2: #57c1ad;
-  --blue-3: #4ca997;
-  --blue-4: #419182;
-  --blue-5: #37796c;
-  --blue-6: #2c6056;
-  --blue-7: #214841;
-  --blue-8: #16302b;
-  --blue-9: #0b1816;
-  --blue-pastel: #5da4a6;
+.MuiGrid-container {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1920px;
+}
+
+::selection {
+  color: rgb(255, 152, 0);
+  background: rgb(32, 35, 41);
 }

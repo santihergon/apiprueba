@@ -58,9 +58,9 @@ function App() {
           <Route exact path="/characters">
             <CharacterList />
           </Route>
-          {/* <Route exact path="/characters/:live_status/">
+          <Route exact path="/characters/:live_status">
             <CharacterList />
-          </Route> */}
+          </Route>
           <Route path="*">
             <h1>No encontrado</h1>
           </Route>

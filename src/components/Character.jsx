@@ -33,12 +33,12 @@ export function Character(props) {
 
     const handleClick = () => {
         console.log(history);
-        history.push(`/${character.status}`);
+        history.push(`/characters/${character.status.toLowerCase()}`);
     };
 
 
     return (
-        <Grid item xs={1} sm={2} md={4} key={character.id}>
+        <Grid item   key={character.id}>
             {/* <Personaje>xs=8</Personaje> */}
             <MiCard sx={{ minWidth: 275 }}>
                 <CardContent>

@@ -43,7 +43,7 @@ function Header() {
               </Link>
             </Grid>
             <Grid item>
-              <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
                 {Object.keys(pages).map((page) => (
                   <Button
                     key={page}

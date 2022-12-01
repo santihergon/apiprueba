@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useParams , useHistory} from "react-router-dom";
 
 import "../App.css";
 import { StyledEngineProvider } from '@mui/material/styles';
@@ -20,11 +20,20 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Chip from "@mui/material/Chip";
 
-
 import RickandMorty from "../components/icons/RickandMortySvg";
 import Character from "../components/Character";
 
+/* 
+0. investiga como mandar parametros con rrd v5
+1. imprimir el parametro live_status
+2. si el parametro live_status es uno de los 3 que deberia ser, llamo a la api filtrando por eso
+3. si no es ninguno de los 3, hago un redirect a home o  a characters
+4. actualizo los botones para que me lleven a characters/alive characters/dead y characters/unknown
+*/
+const validLiveStatus = ['alive','dead','unknown']
+
 export function CharacterList() {
+  const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
   const [episodes, setEpisodes] = useState([]);
@@ -34,8 +43,13 @@ export function CharacterList() {
   const [nPages, setNPages] = useState(1);
   const [dead, setDead] = useState(false);
 
+  useEffect(() => {
+    // Business logic to run when eleId updates
+  }, [history.location.key]);
 
- 
+  const { live_status } = useParams();
+  console.log(history.location.key);
+
   const handlePageChange = (event, value) => {
     setPage(value);
     llamaApi(value);
@@ -48,9 +62,63 @@ export function CharacterList() {
     // let characterList = JSON.parse(localStorage.getItem("characterList"));
     // let episodeList = JSON.parse(localStorage.getItem("episodeList"));
     let characterList = null;
+    let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}`;
+    
+    if(validLiveStatus.includes(live_status)){
+      url += `&status=${live_status}`
+    }else{
+      history.push('/')
+    }
+    
+    console.log('la url es: ')
+    console.log(url)
+
+    // if (url+"alive") {
+
+    //   axios.get(url)
+
+    //     .then(function (response) {
+    //       // handle success
+    //       console.log(JSON.stringify(response));
+    //       characterList = (response.data.results);
+    //       setCharacters(characterList);
+
+    //       setNPages(response.data.info.pages) 
+    //     })
+    //     .catch(function (error) {
+    //       // handle error
+    //       console.log(error);
+    //     })
+    //     .finally(function () {
+    //       // always executed
+    //     });
+
+    // }if (url+"dead") {
+
+    //   axios.get(`https://rickandmortyapi.com/api/character/?page=${apiPage}&status=dead`)
+
+    //     .then(function (response) {
+    //       // handle success
+    //       console.log(JSON.stringify(response));
+    //       characterList = (response.data.results);
+    //       setCharacters(characterList);
+
+    //       setNPages(response.data.info.pages) 
+    //     })
+    //     .catch(function (error) {
+    //       // handle error
+    //       console.log(error);
+    //     })
+    //     .finally(function () {
+    //       // always executed
+    //     });
+
+    // }
+
+
 
     axios
-      .get(`https://rickandmortyapi.com/api/character/?page=${apiPage}`)
+      .get(url)
 
       .then(function (response) {
         // handle success
@@ -61,7 +129,7 @@ export function CharacterList() {
         setNPages(response.data.info.pages)
         console.log(response.data.results);
         characterList = response.data.results;
-        setCharacters(characterList);
+        setCharacters([...characterList]);
         //localStorage.setItem("characterList", JSON.stringify(characterList));
         //localStorage.setItem("name", JSON.stringify(characterList[0].name));
       })
@@ -111,10 +179,10 @@ export function CharacterList() {
     console.log("Estamos en useEfect");
 
     if (!hasCalledAPI) {
-      llamaApi(1);
       sethasCalledAPI(true);
+      llamaApi(1);
     }
-  }, [characters, hasCalledAPI]);
+  }, [characters, hasCalledAPI, history.location.key]);
 
   const MiCard = styled(Card)(({ theme }) => ({
     backgroundColor: "#3c3e44",
@@ -126,9 +194,7 @@ export function CharacterList() {
   // };
 
   return (
-    <main>
-      
-
+    <main key={history.location.key}>
       <section id="section2" className="section2">
         <ToggleButtonGroup
           color="primary"
@@ -151,13 +217,13 @@ export function CharacterList() {
 
       <section id="section3" className="section3">
         <Container>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} >
             {showElement === "episode" &&
               episodes !== null &&
               episodes.map((episode) => (
-                <Grid item xs={1} sm={2} md={4} key={episode.id}>
+                <Grid item spacing={{ xs: 2, md: 2 }} key={episode.id}>
                   {/* <Personaje>xs=8</Personaje> */}
-                  <MiCard sx={{ minWidth: 275 }}>
+                  <MiCard >
                     <CardContent>
                       <div className="characterCardContent">
                         <div className="section1CardContent">
