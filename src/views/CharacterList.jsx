@@ -217,7 +217,7 @@ export function CharacterList() {
 
       <section id="section3" className="section3">
         <Container>
-          <Grid container spacing={2} >
+          <Grid spacing={2}>
             {showElement === "episode" &&
               episodes !== null &&
               episodes.map((episode) => (

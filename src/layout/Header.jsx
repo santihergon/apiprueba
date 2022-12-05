@@ -30,8 +30,8 @@ function Header() {
   const history = useHistory();
 
   return <>
-    <AppBar position="static" style={{ backgroundColor: '#202329' }}>
-      <Container  >
+    <AppBar position="static" style={{ backgroundColor: '#202329', marginBottom:'20px' }}>
+      <Container className='header' >
         <Toolbar disableGutters>
           <Grid container
             direction="row"
@@ -49,8 +49,7 @@ function Header() {
                     key={page}
                     onClick={() => history.push(pages[page].url)}
                     sx={{
-                      my: 2, color: 'white', display: 'block',
-                      fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+                      my: 2, color: 'white', display: 'block'
                       //backgroundColor: pages[page].color
                     }}
                   >

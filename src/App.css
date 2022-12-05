@@ -93,23 +93,8 @@
 .section3 {
   margin-right: 0px;
   background: rgb(32, 35, 41);
-}
-
-@media (max-width: 55.625em){
-
-  .tituloSection1 {
-    font-size: 3.75rem !important;
-}
 
 }
-@media (max-width: 1700px){
-
-  .tituloSection1 {
-    font-size: 4.25rem;
-  }
-
-}
-
 
 .status {
   display: inline-flex;
@@ -144,10 +129,74 @@
   -webkit-box-align: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1920px;
+}
+
+.css-1oqqzyl-MuiContainer-root {
+  max-width: 1920px !important;
+}
+
+.header{
+  max-width: 1300px !important;
+
 }
 
 ::selection {
   color: rgb(255, 152, 0);
   background: rgb(32, 35, 41);
+}
+
+.miCard {
+  width: 600px;
+  height: 220px;
+  display: flex;
+  overflow: hidden;
+  background: rgb(60, 62, 68);
+  border-radius: 0.5rem !important;
+  margin: 0.75rem;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
+    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+}
+
+.cardContent {
+  display: flex;
+}
+
+.css-46bh2p-MuiCardContent-root {
+  padding: 0px !important;
+}
+
+.characterCard__Img {
+  height: 100% !important;
+
+}
+.Typography{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif !important;
+  font-weight: 800 !important;
+}
+
+.characterCardContent {
+  flex: 3 1 0%;
+  position: relative;
+  padding: 0.75rem;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 55.625em) {
+
+  .tituloSection1 {
+    font-size: 3.75rem !important;
+  }
+
+}
+
+@media (max-width: 1700px) {
+
+  .tituloSection1 {
+    font-size: 4.25rem;
+  }
+
 }

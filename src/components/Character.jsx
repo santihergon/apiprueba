@@ -33,27 +33,30 @@ export function Character(props) {
 
     const handleClick = () => {
         console.log(history);
-        history.push(`/characters/${character.status.toLowerCase()}`);
+        
+        // TODO: ARREGLAR ESTO!!!!!!!!!!!!!!!!!!
+        window.location = `/characters/${character.status.toLowerCase()}`;
+        // history.push(`/characters/${character.status.toLowerCase()}`);
     };
 
 
     return (
-        <Grid item   key={character.id}>
+        <Grid item key={character.id} className="Grid">
             {/* <Personaje>xs=8</Personaje> */}
-            <MiCard sx={{ minWidth: 275 }}>
-                <CardContent>
+            <MiCard sx={{ minWidth: 275 }} className="miCard" >
+                <CardContent className="cardContent">
                     <div className="characterCardImg">
-                        <img src={character.image} alt="characterCard__Img" />
+                        <img src={character.image} alt="characterCard__Img" class='characterCard__Img' />
                     </div>
                     <div className="characterCardContent">
                         <div className="section1CardContent">
-                            <Typography variant="h5" component="div">
+                            <Typography variant="h5" component="div" className="Typography">
                                 {character.name}
                             </Typography>
                             <Typography variant="h5" component="div">
                                 <span className="status">
                                     <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido") } ></span>
-                                    <Chip label={character.status} onClick={handleClick} />
+                                    <Chip label={character.status} onClick={handleClick} />- {character.species}
                                 </span>
                             </Typography>
                         </div>
@@ -61,9 +64,9 @@ export function Character(props) {
                         <div className="section3CardContent"></div>
                     </div>
                 </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
+                
+            
+                
             </MiCard>
         </Grid>
     );
