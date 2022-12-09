@@ -266,6 +266,11 @@
   fill: rgb(255, 152, 0) !important;
 }
 
+.css-1qsxih2 {
+  max-width: 1920px !important;
+}
+
+
 @media (max-width: 1700px) {
 
   .tituloSection1 {
