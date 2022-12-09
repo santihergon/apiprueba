@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link, useParams , useHistory} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 
 import "../App.css";
 import { StyledEngineProvider } from '@mui/material/styles';
@@ -30,7 +30,7 @@ import Character from "../components/Character";
 3. si no es ninguno de los 3, hago un redirect a home o  a characters
 4. actualizo los botones para que me lleven a characters/alive characters/dead y characters/unknown
 */
-const validLiveStatus = ['alive','dead','unknown']
+const validLiveStatus = ['alive', 'dead', 'unknown']
 
 export function CharacterList() {
   const history = useHistory()
@@ -63,13 +63,13 @@ export function CharacterList() {
     // let episodeList = JSON.parse(localStorage.getItem("episodeList"));
     let characterList = null;
     let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}`;
-    
-    if(validLiveStatus.includes(live_status)){
+
+    if (validLiveStatus.includes(live_status)) {
       url += `&status=${live_status}`
-    }else{
+    } else {
       history.push('/')
     }
-    
+
     console.log('la url es: ')
     console.log(url)
 
@@ -130,6 +130,12 @@ export function CharacterList() {
         console.log(response.data.results);
         characterList = response.data.results;
         setCharacters([...characterList]);
+        console.log('==========================')
+        console.log('==========================')
+        console.log('==========================')
+        console.log('==========================')
+        console.log('==========================')
+
         //localStorage.setItem("characterList", JSON.stringify(characterList));
         //localStorage.setItem("name", JSON.stringify(characterList[0].name));
       })
@@ -143,15 +149,15 @@ export function CharacterList() {
 
     /*
       axios.get("https://rickandmortyapi.com/api/episode")
-
+  
         .then(function (response) {
           // handle success
           console.log(JSON.stringify(response));
           episodeList = (response.data.results);
-
+  
           localStorage.setItem("episodeList", JSON.stringify(episodeList));
           localStorage.setItem("nameEpisode", JSON.stringify(episodeList[0].name));
-
+  
         })
         .catch(function (error) {
           // handle error
@@ -160,7 +166,7 @@ export function CharacterList() {
         .finally(function () {
           // always executed
         });
-
+  
         */
 
 
@@ -216,7 +222,7 @@ export function CharacterList() {
       </section>
 
       <section id="section3" className="section3">
-        <Container>
+        <Container >
           <Grid spacing={2}>
             {showElement === "episode" &&
               episodes !== null &&
@@ -247,9 +253,9 @@ export function CharacterList() {
                 <Character character={character} key={character.id} />
               ))}
           </Grid>
-          <Stack spacing={2} style={{ backgroundColor: "white" }}>
-            <Typography>Page: {page}</Typography>
-            <Pagination count={nPages} page={page} onChange={handlePageChange} />
+          <Stack spacing={2} className="paginacion">
+            <div className="tituloPaginacion">Page: {page}</div>
+            <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
           </Stack>
         </Container>
       </section>

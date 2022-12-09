@@ -18,13 +18,11 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import Chip from "@mui/material/Chip";
 
-export function Character(props) {
-    //console.log('Estamos en character y recibimos');
-    //console.log(props);
+export function Location(props) {
 
     const history = useHistory();
 
-    const { character } = props;
+    const { location } = props;
 
     const MiCard = styled(Card)(({ theme }) => ({
         backgroundColor: "#3c3e44",
@@ -35,41 +33,26 @@ export function Character(props) {
         console.log(history);
 
         // TODO: ARREGLAR ESTO!!!!!!!!!!!!!!!!!!
-        window.location = `/characters/${character.status.toLowerCase()}`;
+        window.location = `/Location/${Location.status.toLowerCase()}`;
         // history.push(`/characters/${character.status.toLowerCase()}`);
     };
 
 
     return (
-        <Grid item key={character.id} className="Grid">
+        <Grid item key={Location.id} className="Grid">
             {/* <Personaje>xs=8</Personaje> */}
             <MiCard sx={{ minWidth: 275 }} className="miCard" >
                 <CardContent className="cardContent">
-                    <div className="characterCardImg">
-                        <img src={character.image} alt="characterCard__Img" class='characterCard__Img' />
-                    </div>
                     <div className="characterCardContent">
                         <div className="section1CardContent">
                             <Typography variant="h5" component="div" className="Typography">
-                                {character.name}
+                                {location.name}
                             </Typography>
                             <Typography variant="h5" component="div">
-                                <span className="status">
-                                    <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido")} ></span>
-                                </span>
-                                <Chip label={character.status} onClick={handleClick} />
-                                <span className="textoTarjeta"> - {character.species}</span>
+                                <span className="textoTarjeta">{location.residents}</span>
                             </Typography>
+
                         </div>
-                        <div className="section2CardContent">
-                            <span className="tituloGris">Última ubicación conocida:</span>
-                            <span className="textoTarjeta">{character.location.name}</span>
-                        </div>
-                        <div className="section2CardContent">
-                            <span className="tituloGris">Visto por primera vez:</span>
-                            <span className="textoTarjeta">{character.origin.name}</span>
-                        </div>
-                        <div className="section3CardContent"></div>
                     </div>
                 </CardContent>
             </MiCard>
@@ -77,4 +60,4 @@ export function Character(props) {
     );
 }
 
-export default Character;
+export default Location;

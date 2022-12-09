@@ -135,9 +135,19 @@
   max-width: 1920px !important;
 }
 
-.header{
+.header {
   max-width: 1300px !important;
 
+}
+
+.btnHeader {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+}
+
+.btnHeader:hover {
+  color: rgb(255, 152, 0) !important;
 }
 
 ::selection {
@@ -168,10 +178,11 @@
 .characterCard__Img {
   height: 100% !important;
 }
-.Typography{
+
+.Typography {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif !important;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
   font-weight: 800 !important;
 }
 
@@ -184,7 +195,86 @@
   flex-direction: column;
 }
 
-@media (max-width: 55.625em) {
+.section2CardContent {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.tituloGris {
+  color: rgb(158, 158, 158);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.textoTarjeta {
+  font-size: 18px;
+}
+
+.css-nz3zgg-MuiButtonBase-root-MuiChip-root {
+  color: white !important;
+  background-color: #00000000 !important;
+  font-size: 16px !important;
+}
+
+.css-nz3zgg-MuiButtonBase-root-MuiChip-root:hover {
+  color: rgb(255, 152, 0) !important;
+}
+
+.tituloPaginacion {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: white !important;
+}
+
+.Elementospaginacion {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+.paginacion {
+  align-content: center !important;
+  flex-wrap: wrap !important;
+  width: 400px;
+  margin: auto;
+  background-color: #3c3e44;
+  border-radius: 0.5rem !important;
+  margin-top: 30px;
+}
+
+.MuiPaginationItem-root {
+  color: white !important;
+}
+
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: #3c3e44 !important;
+}
+
+.hoverable:hover {
+  cursor: pointer;
+}
+
+.hoverable:hover svg {
+  fill: rgb(255, 152, 0) !important;
+}
+
+@media (max-width: 1700px) {
+
+  .tituloSection1 {
+    font-size: 4.25rem;
+  }
+
+}
+
+@media (max-width: 890px) {
 
   .tituloSection1 {
     font-size: 3.75rem !important;
@@ -192,10 +282,24 @@
 
 }
 
-@media (max-width: 1700px) {
+@media (max-width: 715px) {
 
   .tituloSection1 {
-    font-size: 4.25rem;
+    font-size: 2.5rem !important;
+  }
+
+  .miCard {
+    flex-direction: column;
+    height: initial;
+    width: 404px;
+  }
+
+  .cardContent {
+    flex-direction: column;
+  }
+
+  .characterCard__Img {
+    width: 100%;
   }
 
 }

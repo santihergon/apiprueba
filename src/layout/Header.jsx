@@ -20,9 +20,9 @@ import RickandMorty from "../components/icons/RickandMortySvg";
 import RickandMortyHeaderSvg from "../components/icons/RickandMortyHeaderSvg";
 
 const pages = {
-  'characters': { 'url': 'characters', 'color': 'red' },
-  'Pricing': { 'url': 'pricing', 'color': 'blue' },
-  'Blog': { 'url': 'Blog', 'color': 'green' }
+  'Characters': { 'url': 'characters' },
+  'Locations': { 'url': 'locations' },
+  'Episodes': { 'url': 'episodes' }
 }
 
 function Header() {
@@ -30,22 +30,24 @@ function Header() {
   const history = useHistory();
 
   return <>
-    <AppBar position="static" style={{ backgroundColor: '#202329', marginBottom:'20px' }}>
+    <AppBar position="static" style={{ backgroundColor: '#202329', marginBottom: '20px' }}>
       <Container className='header' >
         <Toolbar disableGutters>
           <Grid container
             direction="row"
             justifyContent="space-between"
             alignItems="center" >
-            <Grid item>
-              <Link to='/'>
-                <RickandMortyHeaderSvg sx={{ mr: 1 }} />
-              </Link>
+            <Grid className="hoverable" item onClick={() => window.location = '/'}>
+              {/* <Link to='/'> */}
+              <RickandMortyHeaderSvg sx={{ mr: 1 }} />
+              {/* </Link> */}
+
             </Grid>
             <Grid item>
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
                 {Object.keys(pages).map((page) => (
                   <Button
+                    className="btnHeader"
                     key={page}
                     onClick={() => history.push(pages[page].url)}
                     sx={{
@@ -64,13 +66,13 @@ function Header() {
     </AppBar>
 
     <section id="section1" className="section1">
-        <h1 className="tituloSection1">The Rick and Morty API</h1>
-        <div className="fotoSection1">
-          <RickandMorty
-            style={{ fill: "#f5f5f5", width: "100%", height: "100%" }}
-          />
-        </div>
-      </section>
-      </>
+      <h1 className="tituloSection1">The Rick and Morty API</h1>
+      <div className="fotoSection1">
+        <RickandMorty
+          style={{ fill: "#f5f5f5", width: "100%", height: "100%" }}
+        />
+      </div>
+    </section>
+  </>
 }
 export default Header;

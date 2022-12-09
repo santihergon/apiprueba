@@ -9,8 +9,8 @@ import {
 
 import "./App.css";
 import Header from './layout/Header'
-import Users from "./views/Users.jsx";
-import About from "./views/About.jsx";
+import Locations from "./views/Locations.jsx";
+import Episodes from "./views/Episodes.jsx";
 import CharacterList from "./views/CharacterList.jsx";
 import Alive from "./views/Alive.jsx";
 
@@ -22,7 +22,7 @@ function App() {
 
     <Router>
       <div>
-      <Header />
+        <Header />
         {/* <nav>
           <ul>
             <li>
@@ -43,14 +43,14 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-        <Route path="/alive">
+          <Route path="/alive">
             <Alive />
           </Route>
-          <Route path="/about">
-            <About />
+          <Route path="/episodes">
+            <Episodes />
           </Route>
-          <Route path="/users"> 
-            <Users />
+          <Route path="/locations">
+            <Locations />
           </Route>
           <Route exact path="/">
             <CharacterList />
