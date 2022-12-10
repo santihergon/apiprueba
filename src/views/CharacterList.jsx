@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 
-import "../App.css";
 import { StyledEngineProvider } from '@mui/material/styles';
 //import Header from "../layout/Header";
 import axios from "axios";
@@ -222,42 +221,48 @@ export function CharacterList() {
       </section>
 
       <section id="section3" className="section3">
-        <Container >
-          <Grid spacing={2}>
-            {showElement === "episode" &&
-              episodes !== null &&
-              episodes.map((episode) => (
-                <Grid item spacing={{ xs: 2, md: 2 }} key={episode.id}>
-                  {/* <Personaje>xs=8</Personaje> */}
-                  <MiCard >
-                    <CardContent>
-                      <div className="characterCardContent">
-                        <div className="section1CardContent">
-                          <Typography variant="h5" component="div">
-                            {episode.name}
-                          </Typography>
-                        </div>
+        <Grid container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          //zeroMinWidth
+          //sx={{minWidth:'1900px !important'}}
+          spacing={4}>
+          {showElement === "episode" &&
+            episodes !== null &&
+            episodes.map((episode) => (
+              <Grid item
+                //spacing={{ xs: 2, md: 3 }} 
+                sx={{ width: '100% !important' }}
+                key={episode.id} xs={3}>
+                {/* <Personaje>xs=8</Personaje> */}
+                <MiCard >
+                  <CardContent>
+                    <div className="characterCardContent">
+                      <div className="section1CardContent">
+                        <Typography variant="h5" component="div">
+                          {episode.name}
+                        </Typography>
                       </div>
-                    </CardContent>
-                  </MiCard>
-                </Grid>
-              ))}
-          </Grid>
-        </Container>
+                    </div>
+                  </CardContent>
+                </MiCard>
+              </Grid>
+            ))}
+          {/* </Grid> */}
 
-        <Container>
-          <Grid container spacing={2}>
-            {showElement === "character" &&
-              characters !== null &&
-              characters.map((character) => (
-                <Character character={character} key={character.id} />
-              ))}
-          </Grid>
+          {/* <Grid container spacing={2}> */}
+          {showElement === "character" &&
+            characters !== null &&
+            characters.map((character) => (
+              <Character character={character} key={character.id} />
+            ))}
+
           <Stack spacing={2} className="paginacion">
             <div className="tituloPaginacion">Page: {page}</div>
             <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
           </Stack>
-        </Container>
+        </Grid>
       </section>
     </main>
   );

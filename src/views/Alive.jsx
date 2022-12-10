@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 
 
-import "../App.css";
 import axios from "axios";
 import { styled } from "@mui/material";
 import Card from "@mui/material/Card";

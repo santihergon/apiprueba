@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 
-import "../App.css";
 import axios from "axios";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";  
