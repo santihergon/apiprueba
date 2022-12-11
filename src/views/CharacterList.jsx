@@ -262,7 +262,7 @@ export function CharacterList() {
         </Grid>
         <Stack spacing={2} className="paginacion">
             <div className="tituloPaginacion">Page: {page}</div>
-            <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
+            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
           </Stack>
       </section>
     </main>

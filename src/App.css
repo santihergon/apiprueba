@@ -133,12 +133,16 @@
 
 */
 
-.css-1oqqzyl-MuiContainer-root {
+/* .css-1oqqzyl-MuiContainer-root {
   max-width: 1920px !important;
-}
+} */
+
+
+
+/* Si quiero cambiar el header tengo que usar esto */
 
 .header {
-  max-width: 1300px !important;
+  max-width: 1920px !important;
 
 }
 
@@ -157,8 +161,8 @@
 }
 
 ::selection {
-  color: rgb(255, 152, 0);
-  background: rgb(32, 35, 41);
+  color: rgb(255, 152, 0) !important;
+  background: rgb(32, 35, 41) !important;
 }
 
 
@@ -277,12 +281,13 @@
   margin-top: 15px;
 }
 
-.Elementospaginacion {
+.elementospaginacion {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif !important;
   font-size: 16px !important;
   font-weight: 500 !important;
+  margin-bottom: 16px !important;
 }
 
 .paginacion {
@@ -317,9 +322,9 @@
 
 }
 
-.css-1qsxih2 {
+/* .css-1qsxih2 {
   max-width: 1920px !important;
-}
+} */
 
 .footer {
   padding: 81px 0px 81px 0px;
@@ -400,6 +405,7 @@ svg.footer-icon:hover {
     flex-direction: column;
     height: initial;
     width: 404px;
+
   }
 
   .cardContent {
