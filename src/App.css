@@ -422,10 +422,12 @@ svg.footer-icon:hover {
     width: 100%;
   }
 
-
-
-  .css-27y6a6-MuiGrid-root>.MuiGrid-item {
+  .css-1nsxlg2 > .MuiGrid-item {
     padding-left: 20px !important;
   }
+
+  /* .css-27y6a6-MuiGrid-root>.MuiGrid-item {
+    padding-left: 20px !important;
+  } */
 
 }
