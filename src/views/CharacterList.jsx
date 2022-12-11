@@ -200,7 +200,7 @@ export function CharacterList() {
 
   return (
     <main key={history.location.key}>
-      <section id="section2" className="section2">
+      {/* <section id="section2" className="section2">
         <ToggleButtonGroup
           color="primary"
           value={showElement}
@@ -218,7 +218,7 @@ export function CharacterList() {
             iOS
           </ToggleButton>
         </ToggleButtonGroup>
-      </section>
+      </section> */}
 
       <section id="section3" className="section3">
         <Grid container

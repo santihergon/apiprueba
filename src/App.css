@@ -48,6 +48,7 @@
   height: calc(50vh - 60px);
   text-align: center;
   position: relative;
+
 }
 
 .tituloSection1 {
@@ -107,6 +108,7 @@
   margin-right: 0px;
   background: rgb(32, 35, 41);
   padding-bottom: 150px;
+  padding-top: 60px;
 }
 
 .vivo {
@@ -396,6 +398,10 @@ svg.footer-icon:hover {
 }
 
 @media (max-width: 715px) {
+
+  .section3 {
+    padding-top: 30px;
+  }
 
   .tituloSection1 {
     font-size: 2.5rem !important;
