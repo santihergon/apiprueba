@@ -404,7 +404,7 @@ svg.footer-icon:hover {
   .miCard {
     flex-direction: column;
     height: initial;
-    width: 404px;
+    width: auto !important;
 
   }
 
