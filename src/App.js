@@ -8,7 +8,8 @@ import {
 
 
 import "./App.css";
-import Header from './layout/Header'
+import Header from './layout/Header';
+import Footer from './layout/Footer';
 import Locations from "./views/Locations.jsx";
 import Episodes from "./views/Episodes.jsx";
 import CharacterList from "./views/CharacterList.jsx";
@@ -65,6 +66,8 @@ function App() {
             <h1>No encontrado</h1>
           </Route>
         </Switch>
+        <Footer />
+
       </div>
     </Router>
 

@@ -83,31 +83,30 @@
   font-size: 0.75rem !important;
   font-weight: 800 !important;
   margin-right: 10px !important;
+  transition: color 0.2s ease 0s;
+
 }
 
 .btnEposideSection2:hover {
   background: #ff9800 !important;
   color: white !important;
+  transition: color 0.2s ease 0s;
+
 }
+
+.section2CardContent {
+  flex: 1 1 0% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  -webkit-box-pack: center !important;
+  justify-content: center !important;
+}
+
 
 .section3 {
   margin-right: 0px;
   background: rgb(32, 35, 41);
-
-}
-
-.status {
-  display: inline-flex;
-  -webkit-box-align: center;
-  align-items: center;
-  text-transform: capitalize;
-}
-
-.status__icon {
-  height: 0.5rem !important;
-  width: 0.5rem !important;
-  margin-right: 0.375rem !important;
-  border-radius: 50% !important;
+  padding-bottom: 150px;
 }
 
 .vivo {
@@ -147,10 +146,14 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif !important;
+  transition: color 0.2s ease 0s;
+
 }
 
 .btnHeader:hover {
   color: rgb(255, 152, 0) !important;
+  transition: color 0.2s ease 0s;
+
 }
 
 ::selection {
@@ -166,18 +169,19 @@
   /* margin-bottom: 0.75rem; */
   background: rgb(60, 62, 68);
   border-radius: 0.5rem !important;
-  
+
   box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
     rgb(0 0 0 / 6%) 0px 2px 4px -1px;
 }
 
 .cardContent {
   display: flex;
-}
-
-.css-46bh2p-MuiCardContent-root {
   padding: 0px !important;
 }
+
+/* .css-46bh2p-MuiCardContent-root {
+  padding: 0px !important;
+} */
 
 .characterCard__Img {
   height: 100% !important;
@@ -199,13 +203,6 @@
   flex-direction: column;
 }
 
-.section2CardContent {
-  flex: 1 1 0%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  justify-content: center;
-}
 
 .tituloGris {
   color: rgb(158, 158, 158);
@@ -213,11 +210,54 @@
   font-weight: 500;
 }
 
-.textoTarjeta {
+.respuestaPregunta {
   font-size: 18px;
 }
 
-.css-nz3zgg-MuiButtonBase-root-MuiChip-root {
+.status {
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+
+}
+
+.status__icon {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  align-items: center !important;
+
+}
+
+.characterStatus {
+  color: white !important;
+  background-color: #00000000 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  align-items: center !important;
+  transition: color 0.2s ease 0s;
+
+}
+
+.characterStatus:hover {
+  color: rgb(255, 152, 0) !important;
+  transition: color 0.2s ease 0s;
+
+}
+
+
+.MuiChip-label {
+  padding-left: 7px !important;
+  padding-right: 4px !important;
+  align-items: center !important;
+
+}
+
+/* .css-nz3zgg-MuiButtonBase-root-MuiChip-root {
   color: white !important;
   background-color: #00000000 !important;
   font-size: 16px !important;
@@ -225,7 +265,7 @@
 
 .css-nz3zgg-MuiButtonBase-root-MuiChip-root:hover {
   color: rgb(255, 152, 0) !important;
-}
+} */
 
 .tituloPaginacion {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -266,14 +306,72 @@
   cursor: pointer;
 }
 
+.hoverable svg {
+  transition: fill 0.2s ease 0s !important;
+}
+
 .hoverable:hover svg {
   fill: rgb(255, 152, 0) !important;
+  transition: fill 0.2s ease 0s !important;
+
 }
 
 .css-1qsxih2 {
   max-width: 1920px !important;
 }
 
+.footer {
+  padding: 81px 0px 81px 0px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  background: rgb(32, 35, 41);
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.footerSign {
+  color: #9e9e9e;
+  font-size: 14px;
+  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.footerSign a {
+  color: white;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(255, 152, 0);
+  transition: color 0.2s ease 0s;
+  text-decoration: none;
+
+}
+
+.footerSign a:hover {
+  font-weight: bold;
+  transition: color 0.2s ease 0s;
+  color: rgb(255, 152, 0);
+  transition: color 0.2s ease 0s;
+  border-bottom: none;
+}
+
+.netlify {
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+}
+
+.rrss {
+  margin-top: 30px !important;
+}
+
+.linkrrss {
+  border-bottom: none !important;
+  text-decoration: none !important;
+  padding-right: 6px !important;
+}
+
+svg.footer-icon:hover {
+  fill: orange !important;
+}
 
 @media (max-width: 1700px) {
 

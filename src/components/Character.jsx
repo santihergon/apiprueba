@@ -53,21 +53,19 @@ export function Character(props) {
                             <Typography variant="h5" component="div" className="Typography">
                                 {character.name}
                             </Typography>
-                            <Typography variant="h5" component="div">
-                                <span className="status">
-                                    <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido")} ></span>
-                                </span>
-                                <Chip label={character.status} onClick={handleClick} />
-                                <span className="textoTarjeta"> - {character.species}</span>
-                            </Typography>
+                            <span className="status">
+                                <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido")} ></span>
+                                <Chip className="characterStatus" label={character.status} onClick={handleClick} />
+                                <span className=""> - {character.species}</span>
+                            </span>
                         </div>
                         <div className="section2CardContent">
                             <span className="tituloGris">Última ubicación conocida:</span>
-                            <span className="textoTarjeta">{character.location.name}</span>
+                            <span className="respuestaPregunta">{character.location.name}</span>
                         </div>
                         <div className="section2CardContent">
                             <span className="tituloGris">Visto por primera vez:</span>
-                            <span className="textoTarjeta">{character.origin.name}</span>
+                            <span className="respuestaPregunta">{character.origin.name}</span>
                         </div>
                         <div className="section3CardContent"></div>
                     </div>
