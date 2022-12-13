@@ -1,25 +1,15 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory } from "react-router-dom";
 
-import { StyledEngineProvider } from '@mui/material/styles';
-//import Header from "../layout/Header";
 import axios from "axios";
 import { styled } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import Chip from "@mui/material/Chip";
 
-import RickandMorty from "../components/icons/RickandMortySvg";
 import Character from "../components/Character";
 
 /* 
@@ -35,7 +25,7 @@ export function CharacterList() {
   const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
-  const [episodes, setEpisodes] = useState([]);
+  // const [episodes, setEpisodes] = useState([]);
   const [showElement, setShowElement] = useState("character");
   const [statusFilter, setStatusFilter] = useState(null);
   const [page, setPage] = useState(1);
@@ -60,6 +50,7 @@ export function CharacterList() {
   const llamaApi = (apiPage) => {
     // let characterList = JSON.parse(localStorage.getItem("characterList"));
     // let episodeList = JSON.parse(localStorage.getItem("episodeList"));
+
     let characterList = null;
     let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}`;
 
@@ -72,53 +63,9 @@ export function CharacterList() {
     console.log('la url es: ')
     console.log(url)
 
-    // if (url+"alive") {
-
-    //   axios.get(url)
-
-    //     .then(function (response) {
-    //       // handle success
-    //       console.log(JSON.stringify(response));
-    //       characterList = (response.data.results);
-    //       setCharacters(characterList);
-
-    //       setNPages(response.data.info.pages) 
-    //     })
-    //     .catch(function (error) {
-    //       // handle error
-    //       console.log(error);
-    //     })
-    //     .finally(function () {
-    //       // always executed
-    //     });
-
-    // }if (url+"dead") {
-
-    //   axios.get(`https://rickandmortyapi.com/api/character/?page=${apiPage}&status=dead`)
-
-    //     .then(function (response) {
-    //       // handle success
-    //       console.log(JSON.stringify(response));
-    //       characterList = (response.data.results);
-    //       setCharacters(characterList);
-
-    //       setNPages(response.data.info.pages) 
-    //     })
-    //     .catch(function (error) {
-    //       // handle error
-    //       console.log(error);
-    //     })
-    //     .finally(function () {
-    //       // always executed
-    //     });
-
-    // }
-
-
 
     axios
       .get(url)
-
       .then(function (response) {
         // handle success
         console.log(JSON.stringify(response));
@@ -146,37 +93,34 @@ export function CharacterList() {
         // always executed
       });
 
-    /*
-      axios.get("https://rickandmortyapi.com/api/episode")
-  
-        .then(function (response) {
-          // handle success
-          console.log(JSON.stringify(response));
-          episodeList = (response.data.results);
-  
-          localStorage.setItem("episodeList", JSON.stringify(episodeList));
-          localStorage.setItem("nameEpisode", JSON.stringify(episodeList[0].name));
-  
-        })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-        .finally(function () {
-          // always executed
-        });
-  
-        */
+
+    // axios.get("https://rickandmortyapi.com/api/episode")
+    //   .then(function (response) {
+    //     // handle success
+    //     console.log(JSON.stringify(response));
+    //     episodeList = (response.data.results);
+
+    //     localStorage.setItem("episodeList", JSON.stringify(episodeList));
+    //     localStorage.setItem("nameEpisode", JSON.stringify(episodeList[0].name));
+
+    //   })
+    //   .catch(function (error) {
+    //     // handle error
+    //     console.log(error);
+    //   })
+    //   .finally(function () {
+    //     // always executed
+    //   });
 
 
-    //setEpisodes(episodeList);
+    // setEpisodes(episodeList);
 
     // setCharacters(prevProducts => ([...prevProducts, []]));
 
     //let nameCharacter = JSON.parse(localStorage.getItem("nameCharacter"));
     //console.log("nameCharacter: " + nameCharacter);
 
-    //let nameEpisode = JSON.parse(localStorage.getItem("nameEpisode"));
+    let nameEpisode = JSON.parse(localStorage.getItem("nameEpisode"));
     //console.log("nameEpisode: " + nameEpisode);
   };
 
@@ -194,78 +138,45 @@ export function CharacterList() {
     color: "#f5f5f5",
   }));
 
-  // const Personaje = () => {
-  //   return <strong>prueba</strong>;
-  // };
-
   return (
-    <main key={history.location.key}>
-      {/* <section id="section2" className="section2">
-        <ToggleButtonGroup
-          color="primary"
-          value={showElement}
-          exclusive
-          onChange={handleChange}
-          aria-label="Platform"
-        >
-          <ToggleButton value="character" className="btnEposideSection2">
-            Characters
-          </ToggleButton>
-          <ToggleButton value="episode" className="btnEposideSection2">
-            Episodes
-          </ToggleButton>
-          <ToggleButton value="ios" className="btnEposideSection2">
-            iOS
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </section> */}
-
-      <section id="section3" className="section3">
-        <Grid container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          //zeroMinWidth
-          //sx={{minWidth:'1900px !important'}}
-          spacing={4}>
-          {showElement === "episode" &&
-            episodes !== null &&
-            episodes.map((episode) => (
-              <Grid item
-                //spacing={{ xs: 2, md: 3 }} 
-                sx={{ width: '100% !important' }}
-                key={episode.id} xs={3}>
-                {/* <Personaje>xs=8</Personaje> */}
-                <MiCard >
-                  <CardContent>
-                    <div className="characterCardContent">
-                      <div className="section1CardContent">
-                        <Typography variant="h5" component="div">
-                          {episode.name}
-                        </Typography>
-                      </div>
+    //Esto de la key que es?
+    <section className="showcase" key={history.location.key}>
+      <Grid container //Contenedor Padre
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ px: '2em' }} //Pading a los lados del Grid
+        spacing={4}>
+        {/* {showElement === "episode" &&
+          episodes !== null &&
+          episodes.map((episode) => (
+            <div key={episode.id}>
+              <MiCard >
+                <CardContent>
+                  <div className="characterCardContent">
+                    <div className="section1CardContent">
+                      <Typography variant="h5" component="div">
+                        {episode.name}
+                      </Typography>
                     </div>
-                  </CardContent>
-                </MiCard>
-              </Grid>
-            ))}
-          {/* </Grid> */}
+                  </div>
+                </CardContent>
+              </MiCard>
+            </div>
+          ))} */}
 
-          {/* <Grid container spacing={2}> */}
-          {showElement === "character" &&
-            characters !== null &&
-            characters.map((character) => (
-              <Character character={character} key={character.id} />
-            ))}
-
-          
-        </Grid>
-        <Stack spacing={2} className="paginacion">
-            <div className="tituloPaginacion">Page: {page}</div>
-            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
-          </Stack>
-      </section>
-    </main>
+        {showElement === "character" &&
+          characters !== null &&
+          characters.map((character) => (
+            <Character character={character} key={character.id} />
+          ))}
+      </Grid>
+      
+      <Stack spacing={2} className="paginacion">
+        <div className="tituloPaginacion">Page: {page}</div>
+        <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
+      </Stack>
+    </section>
   );
 }
 
