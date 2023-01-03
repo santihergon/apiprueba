@@ -201,8 +201,13 @@
 }
 
 .miCard span{
-  flex-direction: column !important;
+  /* flex-direction: column !important; */
   display: flex !important;
+
+}
+.MuiGrid-item{
+  align-items: center;
+  display: grid;
 }
 
 /* .section2 {
