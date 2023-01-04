@@ -18,8 +18,8 @@
 }
 
 .btnHeader {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif !important;
   transition: color 0.2s ease 0s;
 }
@@ -28,7 +28,6 @@
   color: rgb(255, 152, 0) !important;
   transition: color 0.2s ease 0s;
 }
-
 
 /* Hero Styles */
 .hero {
@@ -53,7 +52,6 @@
   font-size: 5.625rem;
 }
 
-
 /* .section1 {
   display: flex;
   -webkit-box-pack: center;
@@ -73,7 +71,6 @@
   height: 100%;
 } */
 
-
 /* Showcase Styles */
 .showcase {
   margin-right: 0px;
@@ -81,6 +78,45 @@
   padding-bottom: 150px;
   padding-top: 60px;
 }
+
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+input.searchBarInput {
+  width: 30%;
+  border: 2.5px solid transparent;
+  border-radius: 0.5rem;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
+    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  padding: 10px 15px;
+}
+
+input.searchBarInput:hover {
+  border: 2.5px solid #ff9800;
+}
+
+input.searchBarInput:focus {
+  outline: none;
+}
+
+.searchBarBtn {
+  background-color: #3c3e44;
+  border-radius: 0.5rem;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
+    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  color: white;
+    border: 2.5px solid transparent;
+margin-left: 10px;
+  padding: 10px 15px;
+ }
+.searchBarBtn:hover {
+    background-color: #ff9800;
+
+ }
+
 
 .characterCardContent {
   flex: 3 1 0%;
@@ -92,18 +128,18 @@
 }
 
 .tituloPaginacion {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   color: white !important;
-  margin-top: 15px;
+  margin-top: 16px;
 }
 
 .elementospaginacion {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif !important;
   font-size: 16px !important;
   font-weight: 500 !important;
@@ -129,8 +165,8 @@
 }
 
 .Typography {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif !important;
   font-weight: 800 !important;
 }
@@ -166,8 +202,8 @@
   background-color: #00000000 !important;
   font-size: 16px !important;
   font-weight: 500 !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif !important;
   align-items: center !important;
   transition: color 0.2s ease 0s;
@@ -200,12 +236,12 @@
   padding: 0px;
 }
 
-.miCard span{
+.miCard span {
   /* flex-direction: column !important; */
   display: flex !important;
-
 }
-.MuiGrid-item{
+
+.MuiGrid-item {
   align-items: center;
   display: grid;
 }
@@ -313,16 +349,19 @@ footer {
 footer .sign {
   color: #9e9e9e;
   font-size: 14px;
-  font-family: -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
 }
+
 footer .sign a {
   color: white;
   font-weight: bold;
   border-bottom: 1px solid rgb(255, 152, 0);
   transition: color 0.2s ease 0s;
   text-decoration: none;
-
 }
+
 footer .sign a:hover {
   font-weight: bold;
   transition: color 0.2s ease 0s;
@@ -356,15 +395,12 @@ small {
   font-weight: 500;
 }
 
-
 /* Responsive styles*/
 @media (max-width: 1700px) {
   .hero h1 {
     font-size: 4.25rem;
   }
 }
-
-
 
 @media (max-width: 890px) {
   .hero h1 {
@@ -402,5 +438,4 @@ small {
   /* .css-27y6a6-MuiGrid-root>.MuiGrid-item {
     padding-left: 20px !important;
   } */
-
 }

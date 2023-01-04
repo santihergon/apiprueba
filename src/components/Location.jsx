@@ -35,6 +35,14 @@ export function Location(props) {
                         <Typography variant="h5" component="div">
                             <span className="textoTarjeta">{location.residents}</span>
                         </Typography>
+                        <div>
+                            <small>Dimensión:</small>
+                            <span>{location.dimension}</span>
+                        </div>
+                        <div>
+                            <small>ype:</small>
+                            <span>{location.type}</span>
+                        </div>
                     </div>
                 </Grid>
             </MiCard>

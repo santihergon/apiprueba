@@ -11,8 +11,9 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 
 import Character from "../components/Character";
+import Search from "../layout/Search";
 
-/* 
+/*
 0. investiga como mandar parametros con rrd v5
 1. imprimir el parametro live_status
 2. si el parametro live_status es uno de los 3 que deberia ser, llamo a la api filtrando por eso
@@ -32,9 +33,14 @@ export function CharacterList() {
   const [nPages, setNPages] = useState(1);
   const [dead, setDead] = useState(false);
 
+  const [search, setSearch] = useState("");
+  const [fetchedData, updateFetchedData] = useState([]);
+
+
   useEffect(() => {
     // Business logic to run when eleId updates
   }, [history.location.key]);
+
 
   const { live_status } = useParams();
   console.log(history.location.key);
@@ -52,7 +58,7 @@ export function CharacterList() {
     // let episodeList = JSON.parse(localStorage.getItem("episodeList"));
 
     let characterList = null;
-    let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}`;
+    let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}&name=${search}`;
 
     if (validLiveStatus.includes(live_status)) {
       url += `&status=${live_status}`
@@ -84,6 +90,15 @@ export function CharacterList() {
 
         //localStorage.setItem("characterList", JSON.stringify(characterList));
         //localStorage.setItem("name", JSON.stringify(characterList[0].name));
+
+          (async function () {
+            let data = await fetch(url).then((res) => res.json());
+            updateFetchedData(data);
+            window.location = `/character/?page=${apiPage}&name=${search}`;
+
+          })();
+
+
       })
       .catch(function (error) {
         // handle error
@@ -141,6 +156,9 @@ export function CharacterList() {
   return (
     //Esto de la key que es?
     <section className="showcase" key={history.location.key}>
+
+      <Search setSearch={setSearch} setNPages={setNPages} />
+
       <Grid container //Contenedor Padre
         direction="row"
         justifyContent="center"
@@ -171,7 +189,6 @@ export function CharacterList() {
             <Character character={character} key={character.id} />
           ))}
       </Grid>
-      
       <Stack spacing={2} className="paginacion">
         <div className="tituloPaginacion">Page: {page}</div>
         <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
