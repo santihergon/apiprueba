@@ -36,14 +36,11 @@ export function CharacterList() {
   const [search, setSearch] = useState("");
   const [fetchedData, updateFetchedData] = useState([]);
 
-
   useEffect(() => {
     // Business logic to run when eleId updates
   }, [history.location.key]);
 
-
   const { live_status } = useParams();
-  console.log(history.location.key);
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -90,15 +87,6 @@ export function CharacterList() {
 
         //localStorage.setItem("characterList", JSON.stringify(characterList));
         //localStorage.setItem("name", JSON.stringify(characterList[0].name));
-
-          (async function () {
-            let data = await fetch(url).then((res) => res.json());
-            updateFetchedData(data);
-            window.location = `/character/?page=${apiPage}&name=${search}`;
-
-          })();
-
-
       })
       .catch(function (error) {
         // handle error
@@ -157,7 +145,7 @@ export function CharacterList() {
     //Esto de la key que es?
     <section className="showcase" key={history.location.key}>
 
-      <Search setSearch={setSearch} setNPages={setNPages} />
+      <Search setSearch={setSearch} search={search} setNPages={setNPages} sethasCalledAPI={sethasCalledAPI}/>
 
       <Grid container //Contenedor Padre
         direction="row"
