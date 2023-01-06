@@ -6,13 +6,13 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
-import Location from "../components/Location";
+import Episode from "../components/Episode";
 
 
-export function LocationList() {
-  const history = useHistory()
+export function EpisodeList() {
+  const history = useHistory();
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
-  const [locations, setLocations] = useState([]);
+  const [episodes, setEpisodeList] = useState([]);
   const [showElement, setShowElement] = useState("character");
   const [page, setPage] = useState(1);
   const [nPages, setNPages] = useState(1);
@@ -27,24 +27,24 @@ export function LocationList() {
   };
 
   const llamaApi = (apiPage) => {
-    let locationList = null;
-    let url = `https://rickandmortyapi.com/api/location/?page=${apiPage}`;
+    let episodeList = null;
+    let url = `https://rickandmortyapi.com/api/episode/?page=${apiPage}`;
 
     axios
       .get(url)
       .then(function (response) {
         // handle success
-        console.log('**Llama Api Locations**')
+        console.log('**Llama Api Episodes**')
 
         console.log("⬇ response.data.results ⬇");
         console.log(response.data.results);
 
         setNPages(response.data.info.pages)
 
-        locationList = response.data.results;
-        setLocations([...locationList]);
+        episodeList = response.data.results;
+        setEpisodeList([...episodeList]);
 
-        console.log('FIN console.log Locations**')
+        console.log('FIN console.log Episodes**')
 
       })
       .catch(function (error) {
@@ -64,16 +64,16 @@ export function LocationList() {
     }
     console.log('FIN useEfect**')
 
-  }, [locations, hasCalledAPI, history.location.key]);
+  }, [episodes, hasCalledAPI, history.location.key]);
 
   return (
     <section className="showcase">
       <Container>
         <Grid container spacing={2}>
           {showElement === "character" &&
-            locations !== null &&
-            locations.map((location) => (
-              <Location location={location} key={location.id} />
+            episodes !== null &&
+            episodes.map((episode) => (
+              <Episode episode={episode} key={episode.id} />
             ))}
         </Grid>
         <Stack spacing={2} className="paginacion">
@@ -85,4 +85,4 @@ export function LocationList() {
   );
 }
 
-export default LocationList;
+export default EpisodeList;

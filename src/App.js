@@ -5,7 +5,7 @@ import Header from "./layout/Header";
 import Hero from "./layout/Hero";
 import Footer from "./layout/Footer";
 import LocationList from "./views/LocationList.jsx";
-import Episodes from "./views/Episodes.jsx";
+import EpisodeList from "./views/EpisodeList.jsx";
 import CharacterList from "./views/CharacterList.jsx";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/episodes">
-            <Episodes />
+            <EpisodeList />
           </Route>
           <Route path="/locations">
             <LocationList />
