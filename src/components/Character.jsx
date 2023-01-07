@@ -3,7 +3,6 @@ import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Chip from "@mui/material/Chip";
 
 export function Character(props) {
     //console.log('Estamos en character y recibimos');
@@ -40,7 +39,7 @@ export function Character(props) {
                         </Typography>
                         <span className="status">
                             <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido")} ></span>
-                            <Chip className="characterStatus" label={character.status} onClick={handleClick} />
+                            <span className="characterStatus" onClick={handleClick}> {character.status}</span>
                             <span> - {character.species}</span>
                         </span>
                     </div>

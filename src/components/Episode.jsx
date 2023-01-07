@@ -8,8 +8,8 @@ import Grid from "@mui/material/Grid";
 export function Episode(props) {
 
     const history = useHistory();
-
     const { episode } = props;
+
 
     const MiCard = styled(Card)(({ theme }) => ({
         backgroundColor: "#3c3e44",
@@ -21,7 +21,6 @@ export function Episode(props) {
 
         // TODO: ARREGLAR ESTO!!!!!!!!!!!!!!!!!!
         window.episode = `/Episode/${Episode.status.toLowerCase()}`;
-        // history.push(`/characters/${character.status.toLowerCase()}`);
     };
 
     return (
@@ -32,13 +31,14 @@ export function Episode(props) {
                         <Typography variant="h5" component="div" className="Typography">
                             {episode.name}
                         </Typography>
-                                <Typography variant="h5" component="div">
-                                    <span className="textoTarjeta">{episode.characters}</span>
-                                </Typography>
-                                <div>
-                                    <small>Emitido:</small>
-                                    <span>{episode.air_date}</span>
-                                </div>
+                        <Typography variant="h5" component="div">
+                            <span className="textoTarjeta">{episode.characters}</span>
+                        </Typography>
+                        <div>
+                            <small>Emitido:</small>
+                            <span>{episode.air_date}</span>
+                            <span>{episode.air_date === "" ? "Unknown" : episode.air_date}</span>
+                        </div>
                     </div>
                 </Grid>
             </MiCard>

@@ -12,6 +12,8 @@ import Grid from "@mui/material/Grid";
 import Character from "../components/Character";
 import Search from "../layout/Search";
 
+
+
 /*
 0. investiga como mandar parametros con rrd v5
 1. imprimir el parametro live_status
@@ -21,7 +23,7 @@ import Search from "../layout/Search";
 */
 const validLiveStatus = ['alive', 'dead', 'unknown']
 
-export function CharacterList() {
+export function CharacterList(props) {
   const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
@@ -34,15 +36,19 @@ export function CharacterList() {
   const [search, setSearch] = useState("");
   const [characterFound, setCharacterFound] = useState(null);
 
-    // useEffect(() => {
-    //   // Business logic to run when eleId updates
-    // }, [history.location.key]);
+  // useEffect(() => {
+  //   // Business logic to run when eleId updates
+  // }, [history.location.key]);
 
   const { live_status } = useParams();
 
   const handlePageChange = (event, value) => {
     setPage(value);
     llamaApi(value);
+    window.scrollTo({
+      top: 350,
+      behavior: 'smooth',
+    })
   };
   const handleChange = (event, newShowElement) => {
     setShowElement(newShowElement);
@@ -97,7 +103,10 @@ export function CharacterList() {
   return (
     //Esto de la key que es?
     <section className="showcase" key={history.location.key}>
+      
+
       <Search setSearch={setSearch} search={search} setNPages={setNPages} sethasCalledAPI={sethasCalledAPI} />
+
       {showElement === "character" &&
         characters !== null &&
         characterFound === true &&
@@ -109,16 +118,16 @@ export function CharacterList() {
             sx={{ px: '2em' }} //Pading a los lados del Grid
             spacing={4}>
             {characters.map((character) => (
-                <Character character={character} key={character.id} />
-              ))}
+              <Character character={character} key={character.id} />
+            ))}
           </Grid>
           <Stack spacing={2} className="paginacion">
             <div className="tituloPaginacion">Page: {page}</div>
-            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
+            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange}/>
           </Stack>
         </div>}
       {characterFound === false ? <div className="characterNotFound">
-      <h1>No se han encontrado caracteres con ese nombre</h1>
+        <h1>No se han encontrado caracteres con ese nombre</h1>
       </div> : null}{/* Si no se encuetran caracteres muestro el h1 y si no, muestro null. Mostrar null es como no mostrar nada */}
     </section>
   );

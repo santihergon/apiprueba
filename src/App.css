@@ -13,7 +13,7 @@
 }
 
 .hoverable:hover svg {
-  fill: rgb(255, 152, 0) !important;
+  fill: #ff9800 !important;
   transition: fill 0.2s ease 0s !important;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .btnHeader:hover {
-  color: rgb(255, 152, 0) !important;
+  color: #ff9800 !important;
   transition: color 0.2s ease 0s;
 }
 
@@ -45,7 +45,7 @@
 
 .hero h1 {
   margin: 0px;
-  color: rgb(32, 35, 41);
+  color: #202329;
   border: none;
   font-weight: 900;
   z-index: 1;
@@ -74,64 +74,94 @@
 /* Showcase Styles */
 .showcase {
   margin-right: 0px;
-  background: rgb(32, 35, 41);
+  background: #202329;
   padding-bottom: 150px;
   padding-top: 60px;
 }
 
+/* searchBar */
 .searchBar {
   display: flex;
   justify-content: center;
   margin-bottom: 60px;
 }
-
 input.searchBarInput {
   width: 30%;
   border: 2.5px solid transparent;
   border-radius: 0.5rem;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  box-shadow: #0000001a 0px 4px 6px -1px,#0000000f 0px 2px 4px -1px;
   padding: 10px 15px;
 }
-
 input.searchBarInput:hover {
   border: 2.5px solid #ff9800;
 }
-
 input.searchBarInput:focus {
   outline: none;
 }
-
 .searchBarBtn {
   background-color: #3c3e44;
   border-radius: 0.5rem;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  box-shadow: #0000001a 0px 4px 6px -1px,#0000000f 0px 2px 4px -1px;
   color: white;
   border: 2.5px solid transparent;
   margin-left: 10px;
   padding: 10px 15px;
 }
-
 .searchBarBtn:hover {
   background-color: #ff9800;
 }
-
 .characterNotFound {
-    color: white ;
-    display: flex;
-    justify-content: center;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
+
+/* Botón go to top */
+.goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #3c3e44;
+  color: #f5f5f5;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 24px;
+  box-shadow: #0000001a 0px 4px 6px -1px,#0000000f 0px 2px 4px -1px;
+}
+.goTopBtn svg {
+  display: block;
+}
+.goTopBtn svg:hover {
+  color: #ff9800;
+}
+
+/* Barra lateral */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #202329;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ff9800;
+  border-radius: 3px;
+  border: 1px solid #ff9800;
+}
+
 
 .characterCardContent h1 {
   flex: 3 1 0%;
   position: relative;
   padding: 0.75rem;
-  color: rgb(255, 255, 255);
+  color: #ffffff;
   display: flex;
   flex-direction: column;
 }
 
+/* Paginacion */
 .tituloPaginacion {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -141,7 +171,6 @@ input.searchBarInput:focus {
   color: white !important;
   margin-top: 16px;
 }
-
 .elementospaginacion {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -150,7 +179,6 @@ input.searchBarInput:focus {
   font-weight: 500 !important;
   margin-bottom: 16px !important;
 }
-
 .paginacion {
   align-content: center !important;
   flex-wrap: wrap !important;
@@ -160,48 +188,41 @@ input.searchBarInput:focus {
   border-radius: 0.5rem !important;
   margin-top: 30px;
 }
-
 .MuiPaginationItem-root {
   color: white !important;
 }
-
 .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
   background-color: #3c3e44 !important;
 }
 
 .Typography {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif !important;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif" !important;
   font-weight: 800 !important;
 }
 
+/* status */
 .status {
   align-items: center;
   font-size: 16px;
   font-weight: 500;
   display: inline-flex;
 }
-
 .status__icon {
   height: 0.5rem;
   width: 0.5rem;
   border-radius: 50%;
   align-items: center !important;
 }
-
 .vivo {
-  background: rgb(85, 204, 68) !important;
+  background: #55cc44 !important;
 }
-
 .muerto {
-  background: rgb(214, 61, 46) !important;
+  background: #d63d2e !important;
 }
-
 .desconocido {
-  background: rgb(158, 158, 158) !important;
+  background: #9e9e9e !important;
 }
-
 .characterStatus {
   color: white !important;
   background-color: #00000000 !important;
@@ -212,13 +233,14 @@ input.searchBarInput:focus {
     sans-serif !important;
   align-items: center !important;
   transition: color 0.2s ease 0s;
+  cursor: pointer;
+  padding-left: 7px !important;
+  padding-right: 4px !important;
 }
-
 .characterStatus:hover {
-  color: rgb(255, 152, 0) !important;
+  color: #ff9800 !important;
   transition: color 0.2s ease 0s;
 }
-
 .characterCard__Img {
   height: 100%;
   width: 100%;
@@ -229,10 +251,9 @@ input.searchBarInput:focus {
   height: 220px; */
   display: flex;
   /* margin-bottom: 0.75rem; */
-  background: rgb(60, 62, 68);
+  background: #3c3e44;
   border-radius: 0.5rem !important;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  box-shadow: #0000001a 0px 4px 6px -1px,#0000000f 0px 2px 4px -1px;
   overflow: hidden;
 }
 
@@ -304,12 +325,12 @@ input.searchBarInput:focus {
 } */
 
 ::selection {
-  color: rgb(255, 152, 0) !important;
-  background: rgb(32, 35, 41) !important;
+  color: #ff9800 !important;
+  background: #202329 !important;
 }
 
 .tituloGris {
-  color: rgb(158, 158, 158);
+  color: #9e9e9e;
   font-size: 16px;
   font-weight: 500;
 }
@@ -332,7 +353,7 @@ input.searchBarInput:focus {
 
 /*.css-nz3zgg-MuiButtonBase-root-MuiChip-root:hover {
   color: rgb(255, 152, 0) !important;
-} 
+}
 */
 
 /* .css-1qsxih2 {
@@ -346,7 +367,7 @@ footer {
   -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;
-  background: rgb(32, 35, 41);
+  background: #202329;
   flex-flow: column nowrap;
   align-items: center;
 }
@@ -370,7 +391,7 @@ footer .sign a {
 footer .sign a:hover {
   font-weight: bold;
   transition: color 0.2s ease 0s;
-  color: rgb(255, 152, 0);
+  color: #ff9800;
   transition: color 0.2s ease 0s;
   border-bottom: none;
 }
@@ -395,7 +416,7 @@ svg.footer-icon:hover {
 }
 
 small {
-  color: rgb(158, 158, 158);
+  color: #9e9e9e;
   font-size: 16px;
   font-weight: 500;
 }
@@ -436,7 +457,7 @@ small {
     width: 100%;
   }
 
-  .css-1nsxlg2>.MuiGrid-item {
+  .css-1nsxlg2 > .MuiGrid-item {
     padding-left: 20px !important;
   }
 

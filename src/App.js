@@ -7,6 +7,7 @@ import Footer from "./layout/Footer";
 import LocationList from "./views/LocationList.jsx";
 import EpisodeList from "./views/EpisodeList.jsx";
 import CharacterList from "./views/CharacterList.jsx";
+import GoTop from "./components/GoTop.jsx";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
           </Route>
         </Switch>
       </main>
+      <GoTop />
+
       <Footer />
     </Router>
   );

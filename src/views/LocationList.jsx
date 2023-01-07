@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import Location from "../components/Location";
 
 
-export function LocationList() {
+  export function LocationList() {
   const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [locations, setLocations] = useState([]);
