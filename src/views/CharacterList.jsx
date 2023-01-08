@@ -103,7 +103,7 @@ export function CharacterList(props) {
   return (
     //Esto de la key que es?
     <section className="showcase" key={history.location.key}>
-      
+
 
       <Search setSearch={setSearch} search={search} setNPages={setNPages} sethasCalledAPI={sethasCalledAPI} />
 
@@ -112,18 +112,14 @@ export function CharacterList(props) {
         characterFound === true &&
         <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
           <Grid container //Contenedor Padre
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            sx={{ px: '2em' }} //Pading a los lados del Grid
-            spacing={4}>
+            >
             {characters.map((character) => (
               <Character character={character} key={character.id} />
             ))}
           </Grid>
           <Stack spacing={2} className="paginacion">
             <div className="tituloPaginacion">Page: {page}</div>
-            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange}/>
+            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
           </Stack>
         </div>}
       {characterFound === false ? <div className="characterNotFound">

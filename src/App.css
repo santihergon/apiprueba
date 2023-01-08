@@ -18,9 +18,6 @@
 }
 
 .btnHeader {
-  font-family: "-apple-system", "BlinkMacSystemFont", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    "sans-serif" !important;
   transition: color 0.2s ease 0s;
 }
 
@@ -171,9 +168,6 @@ body::-webkit-scrollbar-thumb {
 
 /* Paginacion */
 .tituloPaginacion {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif !important;
   font-size: 18px !important;
   font-weight: 800 !important;
   color: white !important;
@@ -181,9 +175,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .elementospaginacion {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif !important;
   font-size: 16px !important;
   font-weight: 500 !important;
   margin-bottom: 16px !important;
@@ -208,9 +199,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .Typography {
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    "sans-serif" !important;
   font-weight: 800 !important;
 }
 
@@ -246,9 +234,7 @@ body::-webkit-scrollbar-thumb {
   background-color: #00000000 !important;
   font-size: 16px !important;
   font-weight: 500 !important;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif !important;
+
   align-items: center !important;
   transition: color 0.2s ease 0s;
   cursor: pointer;
@@ -395,14 +381,12 @@ footer {
   background: #202329;
   flex-flow: column nowrap;
   align-items: center;
+  margin-top: -1px;
 }
 
 footer .sign {
   color: #9e9e9e;
   font-size: 14px;
-  font-family: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
-    "Helvetica", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
 }
 
 footer .sign a {
@@ -465,7 +449,7 @@ small {
   }
 
   .miCard {
-    flex-direction: column;
+    flex-direction: column !important;
     height: initial;
     width: auto !important;
   }
