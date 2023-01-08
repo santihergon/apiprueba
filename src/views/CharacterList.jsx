@@ -100,10 +100,19 @@ export function CharacterList(props) {
     console.log('FIN useEfect**')
   }, [characters, hasCalledAPI, history.location.key]);
 
+
+    const minWidth = window.matchMedia("(min-width: 768px)").matches;
+    console.log(minWidth);
+
+    // if (minWidth === true) {
+
+    // } else {
+
+    // }
+
   return (
     //Esto de la key que es?
     <section className="showcase" key={history.location.key}>
-
 
       <Search setSearch={setSearch} search={search} setNPages={setNPages} sethasCalledAPI={sethasCalledAPI} />
 
@@ -112,14 +121,18 @@ export function CharacterList(props) {
         characterFound === true &&
         <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
           <Grid container //Contenedor Padre
-            >
+          >
             {characters.map((character) => (
               <Character character={character} key={character.id} />
             ))}
           </Grid>
           <Stack spacing={2} className="paginacion">
             <div className="tituloPaginacion">Page: {page}</div>
-            <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
+            {/*
+             <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido")} ></span>
+            */}
+            {minWidth === true ? <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> : <Pagination className="elementospaginacion" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
+}
           </Stack>
         </div>}
       {characterFound === false ? <div className="characterNotFound">
