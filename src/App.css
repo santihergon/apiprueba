@@ -18,9 +18,9 @@
 }
 
 .btnHeader {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "-apple-system", "BlinkMacSystemFont", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif !important;
+    "sans-serif" !important;
   transition: color 0.2s ease 0s;
 }
 
@@ -75,7 +75,6 @@
 .showcase {
   margin-right: 0px;
   background: #202329;
-  padding-bottom: 150px;
   padding-top: 60px;
 }
 
@@ -388,7 +387,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Footer styles*/
 footer {
-  padding: 81px 0px 81px 0px;
+  padding: 62px 0px 62px 0px;
   display: flex;
   -webkit-box-pack: center;
   justify-content: center;
@@ -424,11 +423,7 @@ footer .sign a:hover {
 
 .netlify {
   margin-top: 30px !important;
-  margin-bottom: 30px !important;
-}
-
-.rrss {
-  margin-top: 30px !important;
+  margin-bottom: 26px !important;
 }
 
 .linkrrss {
