@@ -101,14 +101,7 @@ export function CharacterList(props) {
   }, [characters, hasCalledAPI, history.location.key]);
 
 
-    const minWidth = window.matchMedia("(min-width: 768px)").matches;
-    console.log(minWidth);
-
-    // if (minWidth === true) {
-
-    // } else {
-
-    // }
+  // const minWidth = window.matchMedia("(min-width: 768px)").matches;
 
   return (
     //Esto de la key que es?
@@ -120,7 +113,7 @@ export function CharacterList(props) {
         characters !== null &&
         characterFound === true &&
         <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
-          <Grid container //Contenedor Padre
+          <Grid container sx={{ px: '70px', py: '10px' }}//Contenedor Padre
           >
             {characters.map((character) => (
               <Character character={character} key={character.id} />
@@ -128,11 +121,10 @@ export function CharacterList(props) {
           </Grid>
           <Stack spacing={2} className="paginacion">
             <div className="tituloPaginacion">Page: {page}</div>
-            {/*
-             <span className={"status__icon " + (character.status === "Alive" ? "vivo" : character.status === "Dead" ? "muerto" : "desconocido")} ></span>
-            */}
-            {minWidth === true ? <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> : <Pagination className="elementospaginacion" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
-}
+            {/* {minWidth === true ? <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> : <Pagination className="elementospaginacion" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
+            } */}
+            <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
+            <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
           </Stack>
         </div>}
       {characterFound === false ? <div className="characterNotFound">
