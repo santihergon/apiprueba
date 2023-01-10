@@ -41,12 +41,11 @@
 }
 
 .hero h1 {
-  margin: 0px;
   color: #202329;
   border: none;
   font-weight: 900;
   z-index: 1;
-  font-size: 5.625rem;
+  font-size: 5.9rem;
 }
 
 /* .section1 {
@@ -72,16 +71,34 @@
 .showcase {
   margin-right: 0px;
   background: #202329;
-  padding-top: 60px;
+  padding-top: 40px;
+}
+
+.gridCards{
+    animation: fadeInAnimation cubic-bezier(0.4, 0, 1, 1) 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+.characterNotFound{
+  animation: fadeInAnimation cubic-bezier(0.4, 0, 1, 1) 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 /* searchBar */
 .searchBar {
   display: flex;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
-
 input.searchBarInput {
   width: 30%;
   border: 2.5px solid transparent;
@@ -89,17 +106,13 @@ input.searchBarInput {
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
   padding: 10px 15px;
   transition: border 0.3s ease 0s;
-
 }
-
 input.searchBarInput:hover {
   border: 2.5px solid #ff9800;
 }
-
 input.searchBarInput:focus {
   outline: none;
 }
-
 .searchBarBtn {
   background-color: #3c3e44;
   border-radius: 0.5rem;
@@ -111,7 +124,6 @@ input.searchBarInput:focus {
   transition: background-color 0.3s ease 0s;
 
 }
-
 .searchBarBtn:hover {
   background-color: #ff9800;
 }
@@ -449,25 +461,16 @@ small {
 }
 
 /* Responsive styles*/
-@media (max-width: 1700px) {
+
+@media (max-width: 1117px) {
   .hero h1 {
-    font-size: 4.25rem;
+    font-size: 4.6rem !important;
   }
 }
 
 @media (max-width: 890px) {
   .hero h1 {
     font-size: 3.75rem !important;
-  }
-
-  .gridCards:nth-child(2n+1) {
-    padding-right: 5% !important;
-    padding-left: 5% !important;
-  }
-
-  .gridCards:nth-child(2n + 2) {
-    padding-right: 5% !important;
-    padding-left: 5% !important;
   }
 
   .paginacion {
@@ -481,6 +484,12 @@ small {
   display: block;
 }
 
+  .miCard {
+      flex-direction: column !important;
+      height: initial;
+      width: auto !important;
+    }
+
 }
 
 @media (max-width: 715px) {
@@ -489,16 +498,12 @@ small {
   }
 
   .hero h1 {
-    font-size: 2.5rem !important;
+    font-size: 3rem !important;
   }
 
-  .miCard {
-    flex-direction: column !important;
-    height: initial;
-    width: auto !important;
-  }
+  
 
-  .cardContent {
+  /* .cardContent {
     flex-direction: column;
   }
 
@@ -508,7 +513,7 @@ small {
 
   .css-1nsxlg2>.MuiGrid-item {
     padding-left: 20px !important;
-  }
+  } */
 
   /* .css-27y6a6-MuiGrid-root>.MuiGrid-item {
     padding-left: 20px !important;

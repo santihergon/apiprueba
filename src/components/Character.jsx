@@ -3,6 +3,7 @@ import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import { margin } from "@mui/system";
 
 export function Character(props) {
     //console.log('Estamos en character y recibimos');
@@ -28,11 +29,11 @@ export function Character(props) {
     return (
         // Es el hijo del Grid Container
         <Grid item key={character.id} xs={12} sm={6} md={6} sx={{ p: 1 }} className='gridCards'>
-            <MiCard container className="miCard"> {/* Este container para que sirve ??????????????????????????????????????????????????????????????????????????????? */}
-                <Grid item xs={5}>
-                    <img src={character.image} alt="characterCard__Img" className='characterCard__Img'  />
+            <MiCard container className="miCard" sx={{m:'auto'}}> {/* Este container para que sirve ??????????????????????????????????????????????????????????????????????????????? */}
+                <Grid item xs={5} sx={{ '@media screen and (max-width: 890px)': { maxWidth: '100%', m: 'auto' } }}>
+                    <img src={character.image} alt="characterCard__Img" className='characterCard__Img'/>
                 </Grid>
-                <Grid item xs sx={{ pl: '1.5em' }}>
+                <Grid item xs sx={{ pl: '1.5em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' }  }}>
                     <div>
                         <Typography variant="h5" component="div" className="Typography">
                             {character.name}

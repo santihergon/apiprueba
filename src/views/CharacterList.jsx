@@ -27,7 +27,6 @@ export function CharacterList(props) {
   const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
-  // const [episodes, setEpisodes] = useState([]);
   const [showElement, setShowElement] = useState("character");
   const [statusFilter, setStatusFilter] = useState(null);
   const [page, setPage] = useState(1);
@@ -100,7 +99,6 @@ export function CharacterList(props) {
     console.log('FIN useEfect**')
   }, [characters, hasCalledAPI, history.location.key]);
 
-
   // const minWidth = window.matchMedia("(min-width: 768px)").matches;
 
   return (
@@ -113,7 +111,8 @@ export function CharacterList(props) {
         characters !== null &&
         characterFound === true &&
         <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
-          <Grid container sx={{ px: '70px', py: '10px' }}//Contenedor Padre
+          <Grid container className='GridContainer' sx={{px: '70px', py: '10px',
+            '@media screen and (max-width: 64em)': { px: '10px'} }}//Contenedor Padre
           >
             {characters.map((character) => (
               <Character character={character} key={character.id} />
@@ -128,7 +127,7 @@ export function CharacterList(props) {
           </Stack>
         </div>}
       {characterFound === false ? <div className="characterNotFound">
-        <h1>No se han encontrado caracteres con ese nombre</h1>
+        <h1>No se han encontrado personajes con ese nombre</h1>
       </div> : null}{/* Si no se encuetran caracteres muestro el h1 y si no, muestro null. Mostrar null es como no mostrar nada */}
     </section>
   );
