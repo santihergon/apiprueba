@@ -28,12 +28,12 @@ export function Character(props) {
 
     return (
         // Es el hijo del Grid Container
-        <Grid item key={character.id} xs={12} sm={6} md={6} sx={{ p: 1 }} className='gridCards'>
+        <Grid item key={character.id} xs={12} sm={6} md={4} sx={{ p: 1 }} className='gridCards'>
             <MiCard container className="miCard" sx={{m:'auto'}}> {/* Este container para que sirve ??????????????????????????????????????????????????????????????????????????????? */}
-                <Grid item xs={5} sx={{ '@media screen and (max-width: 890px)': { maxWidth: '100%', m: 'auto' } }}>
+                <Grid item xs={4} sx={{'@media screen and (max-width: 890px)': { maxWidth: '100%', m: 'auto' } }}>
                     <img src={character.image} alt="characterCard__Img" className='characterCard__Img'/>
                 </Grid>
-                <Grid item xs sx={{ pl: '1.5em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' }  }}>
+                <Grid item xs sx={{  p: '0.75em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' }  }}>
                     <div>
                         <Typography variant="h5" component="div" className="Typography">
                             {character.name}
@@ -44,11 +44,11 @@ export function Character(props) {
                             <span> - {character.species}</span>
                         </span>
                     </div>
-                    <div>
+                    <div className='pregunta'>
                         <small>Última ubicación conocida:</small>
                         <span>{character.location.name}</span>
                     </div>
-                    <div>
+                    <div className='pregunta'>
                         <span>Visto por primera vez:</span>
                         <span>{character.origin.name}</span>
                     </div>
