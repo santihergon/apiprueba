@@ -13,7 +13,7 @@ function Footer() {
 
     </div>
     <div className="sign">
-      <span >❮❯ by <a href="https://github.com/santihergon" rel="nofollow noopener noreferrer" target="_blank" >Santi Herreros</a> 2022</span>
+      <span >❮❯ by <a href="https://github.com/santihergon" rel="nofollow noopener noreferrer" target="_blank" >Santi Herreros</a> 2023</span>
     </div>
   </footer>
 }
