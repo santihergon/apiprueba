@@ -17,6 +17,7 @@ export function EpisodeList() {
   const [page, setPage] = useState(1);
   const [nPages, setNPages] = useState(1);
 
+
   useEffect(() => {
   }, [history.location.key]);
 
@@ -34,7 +35,7 @@ export function EpisodeList() {
       .get(url)
       .then(function (response) {
         // handle success
-        console.log('**Llama Api Episodes**')
+        console.log('**Llama Api Episodes**');
 
         console.log("⬇ response.data.results ⬇");
         console.log(response.data.results);
@@ -44,7 +45,19 @@ export function EpisodeList() {
         episodeList = response.data.results;
         setEpisodeList([...episodeList]);
 
-        console.log('FIN console.log Episodes**')
+        console.log("**********************************************")
+        console.log(response.data.results)
+        console.log(response.data.results[0])
+
+        // let characterIdList = []
+        // response.data.results[0].characters.map((character) => {
+        //   const splitted = character.split('/')
+        //   characterIdList.push(splitted[splitted.length - 1])
+        // })
+
+        // console.log(characterIdList)
+
+        console.log('FIN console.log Episodes**');
 
       })
       .catch(function (error) {
@@ -56,6 +69,8 @@ export function EpisodeList() {
       });
 
   }
+
+
   useEffect(() => {
     console.log("Estamos en useEfect");
     if (!hasCalledAPI) {
@@ -68,19 +83,22 @@ export function EpisodeList() {
 
   return (
     <section className="showcase">
-      <Container>
-        <Grid container spacing={2}>
-          {showElement === "character" &&
-            episodes !== null &&
-            episodes.map((episode) => (
-              <Episode episode={episode} key={episode.id} />
-            ))}
-        </Grid>
-        <Stack spacing={2} className="paginacion">
-          <div className="tituloPaginacion">Page: {page}</div>
-          <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
-        </Stack>
-      </Container>
+      <Grid container spacing={2} sx={{
+        px: '1%',
+        '@media screen and (max-width: 64em)': { px: '10px' }
+      }}>
+        {showElement === "character" &&
+          episodes !== null &&
+          episodes.map((episode) => (
+            <Episode episode={episode} key={episode.id} />
+          ))}
+      </Grid>
+      <Stack spacing={2} className="paginacion">
+        <div className="tituloPaginacion">Page: {page}</div>
+        {/* <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> */}
+        <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
+        <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
+      </Stack>
     </section>
   );
 }

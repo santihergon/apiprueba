@@ -8,9 +8,9 @@ import Grid from "@mui/material/Grid";
 import RickandMortyHeaderSvg from "../components/icons/RickandMortyHeaderSvg";
 
 const pages = {
-  'Characters': { 'url': 'characters' },
-  'Locations': { 'url': 'locations' },
-  'Episodes': { 'url': 'episodes' }
+  'Characters': { 'url': '/characters/' },
+  'Locations': { 'url': '/locations/' },
+  'Episodes': { 'url': '/episodes/' }
 }
 
 function Header() {

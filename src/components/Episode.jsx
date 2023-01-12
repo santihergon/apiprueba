@@ -16,27 +16,21 @@ export function Episode(props) {
         color: "#f5f5f5",
     }));
 
-    const handleClick = () => {
-        console.log(history);
-
-        // TODO: ARREGLAR ESTO!!!!!!!!!!!!!!!!!!
-        window.episode = `/Episode/${Episode.status.toLowerCase()}`;
-    };
-
     return (
         <Grid item key={Episode.id} xs={12} sm={6} md={4} sx={{ p: '0px' }}>
-            <MiCard container className="miCard">  {/* Este container para que sirve ??????????????????????????????????????????????????????????????????????????????? */}
-                <Grid item sx={{ pl: '1.5em' }}>
+            <MiCard className="miCard hoverable" onClick={() => history.push("/episodes/"+episode.id+"/")}>
+                <Grid  sx={{  p: '0.75em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' }  }}>
                     <div>
+
                         <Typography variant="h5" component="div" className="Typography">
                             {episode.name}
                         </Typography>
-                        <Typography variant="h5" component="div">
+                        {/* <Typography variant="h5" component="div">
                             <span className="textoTarjeta">{episode.characters}</span>
-                        </Typography>
-                        <div>
+                        </Typography> */}
+                        <div className='pregunta'>
                             <small>Emitido:</small>
-                            <span>{episode.air_date}</span>
+                            {/* <span>{episode.air_date}</span> */}
                             <span>{episode.air_date === "" ? "Unknown" : episode.air_date}</span>
                         </div>
                     </div>

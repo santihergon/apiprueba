@@ -8,6 +8,8 @@ import LocationList from "./views/LocationList.jsx";
 import EpisodeList from "./views/EpisodeList.jsx";
 import CharacterList from "./views/CharacterList.jsx";
 import GoTop from "./components/GoTop.jsx";
+import EpisodeDetail from "./views/EpisodeDetail.jsx";
+
 
 function App() {
   return (
@@ -18,19 +20,22 @@ function App() {
         {/* A <Switch> looks through its children <Route>s and
       renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/episodes">
+        <Route exact path="/episodes/">
             <EpisodeList />
           </Route>
-          <Route path="/locations">
+          <Route exact path="/episodes/:id/">
+            <EpisodeDetail />
+          </Route>
+          <Route exact path="/locations/">
             <LocationList />
           </Route>
           <Route exact path="/">
             <CharacterList />
           </Route>
-          <Route exact path="/characters">
+          <Route exact path="/characters/">
             <CharacterList />
           </Route>
-          <Route exact path="/characters/:live_status">
+          <Route exact path="/characters/:live_status/">
             <CharacterList />
           </Route>
           <Route path="*">

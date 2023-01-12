@@ -3,7 +3,6 @@ import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { margin } from "@mui/system";
 
 export function Character(props) {
     //console.log('Estamos en character y recibimos');
@@ -22,14 +21,14 @@ export function Character(props) {
         console.log(history);
 
         // TODO: ARREGLAR ESTO!!!!!!!!!!!!!!!!!!
-        window.location = `/characters/${character.status.toLowerCase()}`;
+        window.location = `/characters/${character.status.toLowerCase()}/`;
         // history.push(`/characters/${character.status.toLowerCase()}`);
     };
 
     return (
         // Es el hijo del Grid Container
         <Grid item key={character.id} xs={12} sm={6} md={4} sx={{ p: 1 }} className='gridCards'>
-            <MiCard container className="miCard" sx={{m:'auto'}}> {/* Este container para que sirve ??????????????????????????????????????????????????????????????????????????????? */}
+            <MiCard container className="miCard" sx={{m:'auto'}}>
                 <Grid item xs={4} sx={{'@media screen and (max-width: 890px)': { maxWidth: '100%', m: 'auto' } }}>
                     <img src={character.image} alt="characterCard__Img" className='characterCard__Img'/>
                 </Grid>

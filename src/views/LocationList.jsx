@@ -37,7 +37,10 @@ import Location from "../components/Location";
         console.log('**Llama Api Locations**')
 
         console.log("⬇ response.data.results ⬇");
-        console.log(response.data.results);
+        console.log(response.data);
+
+        
+
 
         setNPages(response.data.info.pages)
 
@@ -78,7 +81,9 @@ import Location from "../components/Location";
         </Grid>
         <Stack spacing={2} className="paginacion">
           <div className="tituloPaginacion">Page: {page}</div>
-          <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} />
+          {/* <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> */}
+          <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
+          <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
         </Stack>
       </Container>
     </section>
