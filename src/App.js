@@ -9,6 +9,7 @@ import EpisodeList from "./views/EpisodeList.jsx";
 import CharacterList from "./views/CharacterList.jsx";
 import GoTop from "./components/GoTop.jsx";
 import EpisodeDetail from "./views/EpisodeDetail.jsx";
+import LocationDetail from "./views/LocationDetail.jsx";
 
 
 function App() {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/locations/">
             <LocationList />
+          </Route>
+          <Route exact path="/locations/:id/">
+            <LocationDetail />
           </Route>
           <Route exact path="/">
             <CharacterList />

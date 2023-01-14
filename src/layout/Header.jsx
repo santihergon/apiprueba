@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Grid from "@mui/material/Grid";
 import RickandMortyHeaderSvg from "../components/icons/RickandMortyHeaderSvg";
+
 
 const pages = {
   'Characters': { 'url': '/characters/' },
@@ -17,7 +18,7 @@ function Header() {
 
   const history = useHistory();
 
-  return <AppBar position="static" style={{ backgroundColor: '#202329'}}>
+  return <AppBar position="static" style={{ backgroundColor: '#272b33'}}>
     <Container className='header'>
       <Toolbar disableGutters>
         <Grid container
@@ -30,16 +31,15 @@ function Header() {
           <Grid item>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
               {Object.keys(pages).map((page) => (
-                <Button
+                <Link
+                to={pages[page].url}
                   className="btnHeader"
                   key={page}
-                  onClick={() => history.push(pages[page].url)}
-                  sx={{
-                    my: 2, color: 'white', display: 'block'
-                  }}
+                  // onClick={() => history.push(pages[page].url)} //onClick se usa cuando en vez de ser Link es Button por ejemplo 
+                  // style={{ margin: 2, color: 'white', display: 'block' }}
                 >
                   {page}
-                </Button>
+                </Link>
               ))}
             </Box>
           </Grid>

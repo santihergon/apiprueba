@@ -37,10 +37,7 @@ import Location from "../components/Location";
         console.log('**Llama Api Locations**')
 
         console.log("⬇ response.data.results ⬇");
-        console.log(response.data);
-
-        
-
+        console.log(response.data.results);
 
         setNPages(response.data.info.pages)
 
@@ -71,8 +68,12 @@ import Location from "../components/Location";
 
   return (
     <section className="showcase">
-      <Container>
-        <Grid container spacing={2}>
+      <Grid container className='GridContainer' sx={{px: '3.5%', py: '10px', //Contenedor Padre
+            '@media screen and (max-width: 1536px)': { px: '5%'},
+            '@media screen and (max-width: 1200px)': { px: '5%'},
+            '@media screen and (max-width: 900px)': { px: '5%'},
+            '@media screen and (max-width: 600px)': { px: '8%'},}}
+          >
           {showElement === "character" &&
             locations !== null &&
             locations.map((location) => (
@@ -85,7 +86,6 @@ import Location from "../components/Location";
           <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
           <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
         </Stack>
-      </Container>
     </section>
   );
 }

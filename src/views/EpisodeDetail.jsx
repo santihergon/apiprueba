@@ -9,6 +9,8 @@ import Stack from "@mui/material/Stack";
 import Episode from "../components/Episode";
 import { styled } from "@mui/material";
 import Card from "@mui/material/Card";
+import Character from "../components/Character";
+import Search from "../layout/Search";
 
 
 export function EpisodeDetail(props) {
@@ -20,8 +22,11 @@ export function EpisodeDetail(props) {
     const [nPages, setNPages] = useState(1);
 
     const { episode } = props;
-    const { personajes } = props;
 
+    const { id: episodeId } = useParams();
+    const episodeIdInt = parseInt(episodeId);
+
+    const [personajes, setPersonajes] = useState([]);
 
     useEffect(() => {
     }, [history.location.key]);
@@ -34,13 +39,36 @@ export function EpisodeDetail(props) {
 
     const location = useLocation();
 
-    const llamaApi = (apiPage) => {
+    const axiosGetCharacters = (characterIdList) => {
+        let listaPersonajes = null;
+        let url = `https://rickandmortyapi.com/api/character/${characterIdList}`;
+        axios
+            .get(url)
+            .then(function (response) {
+                console.log(response.data);
+                listaPersonajes = response.data;
+                setPersonajes([...listaPersonajes]);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
+    }
+
+
+    const llamaApi = () => {
         let episodeList = null;
-        let url = `https://rickandmortyapi.com/api/episode/?page=${apiPage}`;
+        let url = `https://rickandmortyapi.com/api/episode/${episodeIdInt}`;
 
         axios
             .get(url)
             .then(function (response) {
+                console.log("*********************")
+                console.log(response.data)
+                console.log(response.data.results)
                 // handle success
 
 
@@ -48,17 +76,17 @@ export function EpisodeDetail(props) {
 
                 console.log(episodeList);
 
-                setEpisodeList([...episodeList]);
+                //setEpisodeList([...episodeList]);
 
 
 
                 console.log("location.pathname: " + location.pathname);
 
 
-                var parts = location.pathname.split('/');
-                var linkId = parts.pop() || parts.pop();
+                // var parts = location.pathname.split('/');
+                // var linkId = parts.pop() || parts.pop();
 
-                console.log(linkId);
+                console.log(episodeIdInt);
 
 
                 // let linkId = [];
@@ -70,16 +98,47 @@ export function EpisodeDetail(props) {
 
 
                 let characterIdList = []
-                response.data.results[0].characters.map((character) => {
+
+                // const mimapper = (character) =>{
+                //     console.log("Estamos en mapper de character: "+character)
+                //     //const splitted = character.split('/');
+                //     //characterIdList.push(splitted[splitted.length - 1]);
+                // }
+                // response.data.characters.map(mimapper)
+
+                // response.data.characters.map((character) => mimapper(character))
+
+
+                // function mifunc(character){
+                //     console.log("Estamos en mapper de character: "+character)
+                //     //const splitted = character.split('/');
+                //     //characterIdList.push(splitted[splitted.length - 1]);
+                // }
+                // response.data.characters.map(mifunc)
+
+
+
+                response.data.characters.map((character) => {
+                    // console.log("Estamos en mapper de character: "+character)
+
                     const splitted = character.split('/');
                     characterIdList.push(splitted[splitted.length - 1]);
+
                 })
+
 
                 console.log(characterIdList);
 
-                console.log(response.data.results[linkId-1].characters);
-                const personajes = response.data.results[linkId-1].characters;
-                console.log(personajes);
+                axiosGetCharacters(characterIdList);
+
+                // console.log(response.data.results[linkId-1].characters);
+                // const personajes = response.data.results[linkId-1].characters;
+                // console.log(personajes);
+
+                //console.log(response.data.results[episodeIdInt-1].characters);
+                //const personajes = response.data.results[episodeIdInt-1].characters;
+
+                // console.log(personajes);
 
             })
             .catch(function (error) {
@@ -101,18 +160,44 @@ export function EpisodeDetail(props) {
 
     }, [episodes, hasCalledAPI, history.location.key]);
 
-    const MiCard = styled(Card)(({ theme }) => ({
-        backgroundColor: "#3c3e44",
-        color: "#f5f5f5",
-    }));
-
     return (
-        <section key={Episode.id}>
-            <h1>Episode
-           
-            {personajes}
-            </h1>
-            
+        // <section key={Episode.id}>
+        //     <h1>Episode
+
+        //         {personajes !== null &&
+        // <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
+        //   <Grid container className='GridContainer' sx={{px: '1%', py: '10px',
+        //     '@media screen and (max-width: 64em)': { px: '10px'} }}//Contenedor Padre
+        //   >
+        //     {personajes.map((character) => (
+        //       <Character character={character} key={character.id} />
+        //     ))}
+        //   </Grid>
+        //   <Stack spacing={2} className="paginacion">
+        //     <div className="tituloPaginacion">Page: {page}</div>
+        //     {/* {minWidth === true ? <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> : <Pagination className="elementospaginacion" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
+        //     } */}
+        //     <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
+        //     <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
+        //   </Stack>
+        // </div>}
+        //     </h1>
+
+        // </section>
+
+        <section className="showcase" key={history.location.key}>
+            {personajes !== null &&
+                <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
+                    <Grid container className='GridContainer' sx={{
+                        px: '1%', py: '10px',
+                        '@media screen and (max-width: 64em)': { px: '10px' }
+                    }}//Contenedor Padre
+                    >
+                        {personajes.map((character) => (
+                            <Character character={character} key={character.id} />
+                        ))}
+                    </Grid>
+                </div>}
         </section>
     );
 }

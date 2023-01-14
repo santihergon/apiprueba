@@ -17,11 +17,11 @@ export function Episode(props) {
     }));
 
     return (
-        <Grid item key={Episode.id} xs={12} sm={6} md={4} sx={{ p: '0px' }}>
-            <MiCard className="miCard hoverable" onClick={() => history.push("/episodes/"+episode.id+"/")}>
-                <Grid  sx={{  p: '0.75em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' }  }}>
+        // <Grid item key={Episode.id} xs={12} sm={6} md={4} sx={{ p: '0px' }}>
+        <Grid item key={Episode.id} xs={12} sm={12} md={6} lg={6} xl={4} sx={{ p: 1 }} className='gridCards'>
+            <MiCard className="miCard hoverable" onClick={() => history.push("/episodes/" + episode.id + "/")}>
+                <Grid sx={{ p: '0.75em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' } }}>
                     <div>
-
                         <Typography variant="h5" component="div" className="Typography">
                             {episode.name}
                         </Typography>

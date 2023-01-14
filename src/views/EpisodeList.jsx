@@ -83,10 +83,17 @@ export function EpisodeList() {
 
   return (
     <section className="showcase">
-      <Grid container spacing={2} sx={{
+      {/* <Grid container spacing={2} sx={{
         px: '1%',
         '@media screen and (max-width: 64em)': { px: '10px' }
-      }}>
+      }}> */}
+      <Grid container className='GridContainer' sx={{ px: '3.5%', py: '10px', //Contenedor Padre
+        '@media screen and (max-width: 1536px)': { px: '5%' },
+        '@media screen and (max-width: 1200px)': { px: '5%' },
+        '@media screen and (max-width: 900px)': { px: '5%' },
+        '@media screen and (max-width: 600px)': { px: '8%' },
+      }}
+      >
         {showElement === "character" &&
           episodes !== null &&
           episodes.map((episode) => (

@@ -27,7 +27,6 @@ export function CharacterList(props) {
   const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
-  const [showElement, setShowElement] = useState("character");
   const [statusFilter, setStatusFilter] = useState(null);
   const [page, setPage] = useState(1);
   const [nPages, setNPages] = useState(1);
@@ -49,9 +48,7 @@ export function CharacterList(props) {
       behavior: 'smooth',
     })
   };
-  const handleChange = (event, newShowElement) => {
-    setShowElement(newShowElement);
-  };
+
 
   const llamaApi = (apiPage) => {
 
@@ -107,12 +104,14 @@ export function CharacterList(props) {
 
       <Search setSearch={setSearch} search={search} setNPages={setNPages} sethasCalledAPI={sethasCalledAPI} />
 
-      {showElement === "character" &&
-        characters !== null &&
+      {characters !== null &&
         characterFound === true &&
         <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
-          <Grid container className='GridContainer' sx={{px: '1%', py: '10px',
-            '@media screen and (max-width: 64em)': { px: '10px'} }}//Contenedor Padre
+          <Grid container className='GridContainer' sx={{px: '3.5%', py: '10px', //Contenedor Padre
+            '@media screen and (max-width: 1536px)': { px: '5%'},
+            '@media screen and (max-width: 1200px)': { px: '5%'},
+            '@media screen and (max-width: 900px)': { px: '5%'},
+            '@media screen and (max-width: 600px)': { px: '8%'},}}
           >
             {characters.map((character) => (
               <Character character={character} key={character.id} />

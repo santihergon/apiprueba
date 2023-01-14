@@ -8,7 +8,6 @@ import Grid from "@mui/material/Grid";
 export function Location(props) {
 
     const history = useHistory();
-
     const { location } = props;
 
     const MiCard = styled(Card)(({ theme }) => ({
@@ -25,24 +24,26 @@ export function Location(props) {
     };
 
     return (
-        <Grid item key={Location.id} xs={12} sm={6} md={4} sx={{ p: '0px' }}>
-            <MiCard className="miCard">
-                <Grid item sx={{ pl: '1.5em' }}>
+        // <Grid item key={Location.id} xs={12} sm={6} md={4} sx={{ p: '0px' }}>
+        <Grid item key={Location.id} xs={12} sm={12} md={6} lg={6} xl={4} sx={{ p: 1 }} className='gridCards'>
+            {/* <MiCard className="miCard"> */}
+            <MiCard className="miCard hoverable" onClick={() => history.push("/locations/" + location.id + "/")}>
+                <Grid sx={{ p: '0.75em', '@media screen and (max-width: 890px)': { maxWidth: '100%', p: '0.75em' } }}>
                     <div>
                         <Typography variant="h5" component="div" className="Typography">
                             {location.name}
                         </Typography>
-                        <Typography variant="h5" component="div">
+                        {/* <Typography variant="h5" component="div">
                             <span className="textoTarjeta">{location.residents}</span>
-                        </Typography>
-                            <div>
-                                <small>Dimensión:</small>
-                                <span>{location.dimension}</span>
-                            </div>
-                            <div>
-                                <small>Type:</small>
-                                <span>{location.type}</span>
-                            </div>
+                        </Typography> */}
+                        <div className='pregunta'>
+                            <small>Tipo:</small>
+                            <span>{location.type === "" ? "Unknown" : location.type}</span>
+                        </div>
+                        <div className='pregunta'>
+                            <small>Type:</small>
+                            <span>{location.dimension === "" ? "Unknown" : location.dimension}</span>
+                        </div>
                     </div>
                 </Grid>
             </MiCard>
