@@ -9,7 +9,7 @@ import Stack from "@mui/material/Stack";
 import Location from "../components/Location";
 
 
-  export function LocationList() {
+export function LocationList() {
   const history = useHistory()
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [locations, setLocations] = useState([]);
@@ -68,24 +68,26 @@ import Location from "../components/Location";
 
   return (
     <section className="showcase">
-      <Grid container className='GridContainer' sx={{px: '3.5%', py: '10px', //Contenedor Padre
-            '@media screen and (max-width: 1536px)': { px: '5%'},
-            '@media screen and (max-width: 1200px)': { px: '5%'},
-            '@media screen and (max-width: 900px)': { px: '5%'},
-            '@media screen and (max-width: 600px)': { px: '8%'},}}
-          >
-          {showElement === "character" &&
-            locations !== null &&
-            locations.map((location) => (
-              <Location location={location} key={location.id} />
-            ))}
-        </Grid>
-        <Stack spacing={2} className="paginacion">
-          <div className="tituloPaginacion">Page: {page}</div>
-          {/* <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> */}
-          <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
-          <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
-        </Stack>
+      <Grid container className='GridContainer' sx={{
+        px: '3.5%', py: '10px', //Contenedor Padre
+        '@media screen and (max-width: 1536px)': { px: '5%' },
+        '@media screen and (max-width: 1200px)': { px: '5%' },
+        '@media screen and (max-width: 900px)': { px: '5%' },
+        '@media screen and (max-width: 600px)': { px: '8%' },
+      }}
+      >
+        {showElement === "character" &&
+          locations !== null &&
+          locations.map((location) => (
+            <Location location={location} key={location.id} />
+          ))}
+      </Grid>
+      <Stack spacing={2} className="paginacion">
+        <div className="tituloPaginacion">Page: {page}</div>
+        {/* <Pagination className="Elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> */}
+        <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
+        <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
+      </Stack>
     </section>
   );
 }

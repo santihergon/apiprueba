@@ -100,9 +100,12 @@ export function LocationDetail(props) {
             {personajes !== null &&
                 <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
                     <Grid container className='GridContainer' sx={{
-                        px: '1%', py: '10px',
-                        '@media screen and (max-width: 64em)': { px: '10px' }
-                    }}//Contenedor Padre
+                        px: '3.5%', py: '10px', //Contenedor Padre
+                        '@media screen and (max-width: 1536px)': { px: '5%' },
+                        '@media screen and (max-width: 1200px)': { px: '5%' },
+                        '@media screen and (max-width: 900px)': { px: '5%' },
+                        '@media screen and (max-width: 600px)': { px: '8%' },
+                    }}
                     >
                         {personajes.map((character) => (
                             <Character character={character} key={character.id} />

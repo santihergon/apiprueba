@@ -107,11 +107,13 @@ export function CharacterList(props) {
       {characters !== null &&
         characterFound === true &&
         <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
-          <Grid container className='GridContainer' sx={{px: '3.5%', py: '10px', //Contenedor Padre
-            '@media screen and (max-width: 1536px)': { px: '5%'},
-            '@media screen and (max-width: 1200px)': { px: '5%'},
-            '@media screen and (max-width: 900px)': { px: '5%'},
-            '@media screen and (max-width: 600px)': { px: '8%'},}}
+          <Grid container className='GridContainer' sx={{
+            px: '3.5%', py: '10px', //Contenedor Padre
+            '@media screen and (max-width: 1536px)': { px: '5%' },
+            '@media screen and (max-width: 1200px)': { px: '5%' },
+            '@media screen and (max-width: 900px)': { px: '5%' },
+            '@media screen and (max-width: 600px)': { px: '8%' },
+          }}
           >
             {characters.map((character) => (
               <Character character={character} key={character.id} />
