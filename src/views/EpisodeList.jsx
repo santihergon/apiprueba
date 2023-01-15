@@ -40,7 +40,7 @@ export function EpisodeList() {
         console.log("⬇ response.data.results ⬇");
         console.log(response.data.results);
 
-        setNPages(response.data.info.pages)
+        setNPages(response.data.info.pages);
 
         episodeList = response.data.results;
         setEpisodeList([...episodeList]);

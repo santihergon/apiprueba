@@ -1,4 +1,4 @@
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, NavLink, useLocation } from "react-router-dom";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -8,17 +8,20 @@ import Grid from "@mui/material/Grid";
 import RickandMortyHeaderSvg from "../components/icons/RickandMortyHeaderSvg";
 
 
-const pages = {
-  'Characters': { 'url': '/characters/' },
-  'Locations': { 'url': '/locations/' },
-  'Episodes': { 'url': '/episodes/' }
-}
+// const pages = {
+//   'Characters': { 'url': '/characters/' },
+//   'Locations': { 'url': '/locations/' },
+//   'Episodes': { 'url': '/episodes/' }
+// }
 
 function Header() {
 
   const history = useHistory();
 
-  return <AppBar position="static" style={{ backgroundColor: '#272b33'}}>
+  // console.log(history);
+  const { pathname } = useLocation();
+
+  return <AppBar position="static" style={{ backgroundColor: 'var(--bg-dark)' }}>
     <Container className='header'>
       <Toolbar disableGutters>
         <Grid container
@@ -30,17 +33,22 @@ function Header() {
           </Grid>
           <Grid item>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-              {Object.keys(pages).map((page) => (
-                <Link
-                to={pages[page].url}
+                {/* <NavLink to="/about">About</NavLink> */}
+                <NavLink
+                  to='/characters/'
+                  isActive={ () => ['/characters/', '/'].includes(pathname) }
                   className="btnHeader"
-                  key={page}
-                  // onClick={() => history.push(pages[page].url)} //onClick se usa cuando en vez de ser Link es Button por ejemplo 
-                  // style={{ margin: 2, color: 'white', display: 'block' }}
+                // onClick={() => history.push(pages[page].url)} //onClick se usa cuando en vez de ser Link es Button por ejemplo 
+                // style={{ margin: 2, color: 'white', display: 'block' }}
                 >
-                  {page}
-                </Link>
-              ))}
+                  Characters
+                </NavLink>
+                <NavLink to='/locations/'className="btnHeader">
+                Locations
+                </NavLink>
+                <NavLink to='/episodes/' className="btnHeader">
+                Episodes
+                </NavLink>
             </Box>
           </Grid>
         </Grid>
