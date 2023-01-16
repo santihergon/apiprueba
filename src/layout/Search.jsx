@@ -5,7 +5,7 @@ function Search({ search, setSearch, setNPages, sethasCalledAPI }) {
     sethasCalledAPI(false);
   };
 
-  return <form className="searchBar">{/* porque necesito un form??? */}
+  return <form className="searchBar">
     <input placeholder="Search for characters" className="searchBarInput" type="text" value={search}
       onChange={(e) => {
         setNPages(1);

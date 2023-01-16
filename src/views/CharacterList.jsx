@@ -11,16 +11,9 @@ import Grid from "@mui/material/Grid";
 
 import Character from "../components/Character";
 import Search from "../layout/Search";
+import Filter from "../layout/Filter";
 
 
-
-/*
-0. investiga como mandar parametros con rrd v5
-1. imprimir el parametro live_status
-2. si el parametro live_status es uno de los 3 que deberia ser, llamo a la api filtrando por eso
-3. si no es ninguno de los 3, hago un redirect a home o  a characters
-4. actualizo los botones para que me lleven a characters/alive characters/dead y characters/unknown
-*/
 const validLiveStatus = ['alive', 'dead', 'unknown']
 
 export function CharacterList(props) {
@@ -49,11 +42,10 @@ export function CharacterList(props) {
     })
   };
 
-
   const llamaApi = (apiPage) => {
 
     let characterList = null;
-    let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}&name=${search}`;
+    let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}&name=${search}`; //Esto es un query parameter o GET parameter
 
     if (validLiveStatus.includes(live_status)) {
       url += `&status=${live_status}`
@@ -103,6 +95,7 @@ export function CharacterList(props) {
     <section className="showcase" key={history.location.key}>
 
       <Search setSearch={setSearch} search={search} setNPages={setNPages} sethasCalledAPI={sethasCalledAPI} />
+      <Filter />
 
       {characters !== null &&
         characterFound === true &&

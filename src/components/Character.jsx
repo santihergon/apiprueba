@@ -21,7 +21,7 @@ export function Character(props) {
         console.log(history);
 
         // TODO: ARREGLAR ESTO!!!!!!!!!!!!!!!!!!
-        window.location = `/characters/${character.status.toLowerCase()}/`;
+        window.location = `/characters/${character.status.toLowerCase()}/`; //Esto es un path parameter
         // history.push(`/characters/${character.status.toLowerCase()}`);
     };
 
@@ -45,11 +45,11 @@ export function Character(props) {
                         </span>
                     </div>
                     <div className='pregunta'>
-                        <small>Última ubicación conocida:</small>
+                        <small>Last known location:</small>
                         <span>{character.location.name}</span>
                     </div>
                     <div className='pregunta'>
-                        <small>Visto por primera vez:</small>
+                        <small>First seen in:</small>
                         <span>{character.origin.name}</span>
                     </div>
                 </Grid>

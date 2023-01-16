@@ -16,12 +16,12 @@ export function LocationDetail(props) {
 
     const history = useHistory();
     const [hasCalledAPI, sethasCalledAPI] = useState(false);
-    const [locations, setlocationList] = useState([]);
 
     const { id: locationId } = useParams();
     const locationIdInt = parseInt(locationId);
 
     const [personajes, setPersonajes] = useState([]);
+    const [personaje, setPersonaje] = useState();
 
     useEffect(() => {
     }, [history.location.key]);
@@ -29,14 +29,21 @@ export function LocationDetail(props) {
     const location = useLocation();
 
     const axiosGetResidents = (residentIdList) => {
-        let listaPersonajes = null;
+        let listaPersonajes = [];
+
         let url = `https://rickandmortyapi.com/api/character/${residentIdList}`;
         axios
             .get(url)
             .then(function (response) {
                 console.log(response.data);
+
                 listaPersonajes = response.data;
-                setPersonajes([...listaPersonajes]);
+
+                if (Array.isArray(listaPersonajes)) {
+                    setPersonajes([...listaPersonajes]);
+                }else{
+                    setPersonajes([listaPersonajes]);
+                }
             })
             .catch(function (error) {
                 // handle error
@@ -93,7 +100,7 @@ export function LocationDetail(props) {
         }
         console.log('FIN useEfect**')
 
-    }, [locations, hasCalledAPI, history.location.key]);
+    }, [ hasCalledAPI, history.location.key]);
 
     return (
         <section className="showcase" key={history.location.key}>
