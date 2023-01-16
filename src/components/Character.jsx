@@ -49,7 +49,7 @@ export function Character(props) {
                         <span>{character.location.name}</span>
                     </div>
                     <div className='pregunta'>
-                        <span>Visto por primera vez:</span>
+                        <small>Visto por primera vez:</small>
                         <span>{character.origin.name}</span>
                     </div>
                 </Grid>
