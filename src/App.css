@@ -1,11 +1,33 @@
 /* Variables globales */
 :root {
   --orange: #ff9800;
-  --bg-dark: #272b33;
-  --bg-light-dark: #3c3e44;
+  --dark: #272b33;
+  --light-dark: #3c3e44;
   --alive: #55cc44;
   --dead: #d63d2e;
   --unknown: #9e9e9e;
+}
+
+.filterBtn.active{
+  background-color: var(--orange);
+}
+
+.filterBtn{
+  background-color: white;
+  border-color: var(--orange) !important;
+  border-radius: 0.5rem;
+  box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
+  color: var(--light-dark);
+  border: 2.5px solid transparent;
+  padding: 10px 15px;
+  transition: background-color 0.3s ease 0s;
+  cursor: pointer;
+  font-weight: 800;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif" !important;
+  font-size: 1rem;
+}
+.filterBtn:hover{
+  background-color: var(--orange);
 }
 
 
@@ -91,7 +113,7 @@
 /* Showcase Styles */
 .showcase {
   margin-right: 0px;
-  background: var(--bg-dark);
+  background: var(--dark);
   padding-top: 40px;
 }
 
@@ -138,10 +160,10 @@ input.searchBarInput::placeholder {
   font-weight: 600;
   font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif" !important;
   font-size: 0.9rem;
-  color: var(--bg-light-dark);
+  color: var(--light-dark);
 }
 .searchBarBtn {
-  background-color: var(--bg-light-dark);
+  background-color: var(--light-dark);
   border-radius: 0.5rem;
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
   color: white;
@@ -196,7 +218,7 @@ input.searchBarInput::placeholder {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: var(--bg-light-dark);
+  background-color: var(--light-dark);
   color: #f5f5f5;
   /* background-color: var(--orange);
   color: #202329; */
@@ -221,7 +243,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--bg-dark);
+  background: var(--dark);
 }
 
 body::-webkit-scrollbar-thumb {
@@ -280,7 +302,7 @@ body::-webkit-scrollbar-thumb {
 .characterStatusVivo {
   /* color: white; */
   color: var(--alive);
-  background-color: var(--bg-dark);
+  background-color: var(--dark);
   border-radius: 0.3rem;
   font-size: 16px;
   font-weight: 500;
@@ -300,7 +322,7 @@ body::-webkit-scrollbar-thumb {
 .characterStatusMuerto {
   /* color: white; */
   color: var(--dead);
-  background-color: var(--bg-dark);
+  background-color: var(--dark);
   border-radius: 0.3rem;
   font-size: 16px;
   font-weight: 500;
@@ -320,7 +342,7 @@ body::-webkit-scrollbar-thumb {
 .characterStatusDesconocido {
   /* color: white; */
   color: var(--unknown);
-  background-color: var(--bg-dark);
+  background-color: var(--dark);
   border-radius: 0.3rem;
   font-size: 16px;
   font-weight: 500;
@@ -348,7 +370,7 @@ body::-webkit-scrollbar-thumb {
   height: 220px; */
   display: flex;
   /* margin-bottom: 0.75rem; */
-  background: var(--bg-light-dark) !important;
+  background: var(--light-dark) !important;
   border-radius: 0.5rem;
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
   overflow: hidden;
@@ -395,7 +417,7 @@ body::-webkit-scrollbar-thumb {
   width: auto; /*En el material ui hacer con col md y col xs*/
   margin-right: 34% !important;
   margin-left: 34% !important;
-  background-color: var(--bg-light-dark);
+  background-color: var(--light-dark);
   border-radius: 0.5rem;
   margin-top: 30px;
 }
@@ -466,12 +488,12 @@ body::-webkit-scrollbar-thumb {
 
 ::selection {
   color: var(--orange);
-  background: var(--bg-dark);
+  background: var(--dark);
 }
 
 ::-moz-selection {
   color: var(--orange);
-  background: var(--bg-dark);
+  background: var(--dark);
 }
 
 .pregunta {
@@ -489,7 +511,7 @@ footer {
   -webkit-box-pack: center;
   justify-content: center;
   -webkit-box-align: center;
-  background: var(--bg-dark);
+  background: var(--dark);
   flex-flow: column nowrap;
   align-items: center;
   margin-top: -1px;

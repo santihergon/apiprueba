@@ -21,7 +21,7 @@ function Header() {
   // console.log(history);
   const { pathname } = useLocation();
 
-  return <AppBar position="static" style={{ backgroundColor: 'var(--bg-dark)' }}>
+  return <AppBar position="static" style={{ backgroundColor: 'var(--dark)' }}>
     <Container className='header'>
       <Toolbar disableGutters>
         <Grid container
