@@ -11,7 +11,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import TextField from "@mui/material/TextField";
+import ClearIcon from "@mui/icons-material/Clear";
+import IconButton from "@mui/material/IconButton";
 
 
 import Container from "@mui/material/Container";
@@ -25,10 +26,19 @@ const gendersList = ["Female", "Male", "Genderless", "Unknown"];
 function Filter({ filters, setFilters, sethasCalledAPI }) {
   const [expanded, setExpanded] = useState(false);
 
-  const handleChange = (event, filterName) => {
-    filters[filterName] = event.target.value;
+  const handleChange = (filterValue, filterName) => {
+    //filterValue = filterValue.target.value
+    console.log(filters[filterName])
+    console.log(filterValue)
+    if (filters[filterName] === filterValue) {
+      filters[filterName] = ''
+    } else {
+      filters[filterName] = filterValue
+    }
+
     setFilters(Object.assign({}, filters));
-    diccionarioToUrl("filterName", event.target.value);
+    sethasCalledAPI(false);
+    //diccionarioToUrl("filterName", event.target.value);
   };
 
   // const handleChange = (panel) => (event, isExpanded) => {
@@ -79,37 +89,16 @@ function Filter({ filters, setFilters, sethasCalledAPI }) {
       });
   };
 
+
   return (
-    <Container>
-      <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+      <Stack direction="row" justifyContent="center" alignItems="center" spacing={2} className="FilterSection">
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Status</InputLabel>
-          <Select labelId="demo-simple-select-label" id="demo-simple-select" value={filters.status} label="Status" onChange={(e) => handleChange(e, "status")}
-          //     renderInput={(params) => (
-          //   <TextField
-          //     {...params}
-          //     style={{ borderRadius: '1.5em' }}
-          //     placeholder="Search..."
-          //     InputProps={{
-          //       ...params.InputProps,
-          //       endAdornment: ( 
-          //         <>
-          //           {params.InputProps.endAdornment}
-
-          //           <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiChip-deleteIcon MuiChip-deleteIconSmall MuiChip-deleteIconColorDefault MuiChip-deleteIconFilledColorDefault css-vubbuv" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CancelIcon"><path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"></path></svg>
-
-          //         </>
-          //       ),
-          //     }}
-          //   />
-          // )}
-          >
-            <MenuItem value="">None</MenuItem>
-
+          <Select labelId="demo-simple-select-label" id="demo-simple-select" value={filters.status} label="Status" onChange={(e) => handleChange(e.target.value, "status")}
+            endAdornment={<IconButton className="clearFilterBtn" sx={{ visibility: filters.status !== '' ? "visible" : "hidden" }}
+              onClick={() => handleChange('', 'status')}><ClearIcon /></IconButton>}>
             {statusList.map((status) => (
-              <MenuItem key={status} value={status} className={"filterBtn " + (filters.status === status ? "active" : "")}
-              //onClick={() => diccionarioToUrl('status', status)}
-              >
+              <MenuItem key={status} value={status} className={filters.status === status ? "active" : ""  }>
                 {status}
               </MenuItem>
             ))}
@@ -117,9 +106,11 @@ function Filter({ filters, setFilters, sethasCalledAPI }) {
         </FormControl>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Species</InputLabel>
-          <Select labelId="demo-simple-select-label" id="demo-simple-select" value={filters.species} label="Species" onChange={(e) => handleChange(e, "species")}>
+          <Select labelId="demo-simple-select-label" id="demo-simple-select" value={filters.species} label="Status" onChange={(e) => handleChange(e.target.value, "species")}
+            endAdornment={<IconButton className="clearFilterBtn" sx={{ visibility: filters.species !== '' ? "visible" : "hidden" }}
+              onClick={() => handleChange('', 'species')}><ClearIcon /></IconButton>}>
             {speciesList.map((species) => (
-              <MenuItem key={species} value={species} className={"filterBtn " + (filters.species === species ? "active" : "")}>
+              <MenuItem key={species} value={species} className={filters.species === species ? "active" : ""}>
                 {species}
               </MenuItem>
             ))}
@@ -127,9 +118,11 @@ function Filter({ filters, setFilters, sethasCalledAPI }) {
         </FormControl>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Gender</InputLabel>
-          <Select labelId="demo-simple-select-label" id="demo-simple-select" value={filters.gender} label="Gender" onChange={(e) => handleChange(e, "gender")}>
+          <Select labelId="demo-simple-select-label" id="demo-simple-select" value={filters.gender} label="Gender" onChange={(e) => handleChange(e.target.value, "gender")}
+            endAdornment={<IconButton className="clearFilterBtn" sx={{ visibility: filters.gender !== '' ? "visible" : "hidden" }}
+              onClick={() => handleChange('', 'gender')}><ClearIcon /></IconButton>}>
             {gendersList.map((gender) => (
-              <MenuItem key={gender} value={gender} className={"filterBtn " + (filters.gender === gender ? "active" : "")}>
+              <MenuItem key={gender} value={gender} className={filters.gender === gender ? "active" : ""}>
                 {gender}
               </MenuItem>
             ))}
@@ -138,7 +131,6 @@ function Filter({ filters, setFilters, sethasCalledAPI }) {
 
       </Stack>
 
-    </Container>
     /* <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
           <Typography>Status</Typography>

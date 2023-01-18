@@ -8,29 +8,6 @@
   --unknown: #9e9e9e;
 }
 
-.filterBtn.active{
-  background-color: var(--orange);
-}
-
-.filterBtn{
-  background-color: white;
-  border-color: var(--orange) !important;
-  border-radius: 0.5rem;
-  box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
-  color: var(--light-dark);
-  border: 2.5px solid transparent;
-  padding: 10px 15px;
-  transition: background-color 0.3s ease 0s;
-  cursor: pointer;
-  font-weight: 800;
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif" !important;
-  font-size: 1rem;
-}
-.filterBtn:hover{
-  background-color: var(--orange);
-}
-
-
 /* Header Styles */
 .header {
   max-width: 1920px !important;
@@ -209,6 +186,51 @@ input.searchBarInput::placeholder {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
 } */
+
+/* Filters */
+
+.FilterSection{
+  width: 46.5% !important;
+  display: flex !important;
+  margin: auto !important;
+}
+
+.MuiOutlinedInput-notchedOutline{/* Border Input*/
+  border-color: var(--orange) !important;
+  border: none !important;
+  background-color: var(--light-dark) !important;
+}
+.css-2d5w1o-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline{ /* Border Input focused*/
+  border: 2px solid var(--orange) !important;
+}
+
+.MuiSvgIcon-root{ /* Arrow Select */
+  fill: white !important;
+  z-index: 1 !important;
+
+}
+.MuiOutlinedInput-input{ /* Text Select */
+  color: white !important;
+  z-index: 1 !important;
+}
+.clearFilterBtn{
+  margin-right: 20px !important;
+  transition: background-color 0.3s ease 0s !important;
+}
+.clearFilterBtn:hover{
+  background-color: #ffffff12 !important;
+  z-index: 1 !important;
+}
+
+.MuiFormLabel-root{  /* Text Select Label */
+  color: white !important;
+  z-index: 1 !important;
+}
+
+.MuiInputLabel-root.Mui-focused {/* Text Label Border Select focused*/
+  color: var(--orange) !important;
+}
+
 
 /* Botón go to top */
 .goTopBtn {
@@ -569,6 +591,9 @@ small {
     margin-right: 30% !important;
     margin-left: 30% !important;
   }
+  .FilterSection{
+    width: 53% !important;
+  }
 }
 
 @media (max-width: 890px) {
@@ -586,6 +611,10 @@ small {
     height: initial;
     width: auto !important;
   } */
+  .FilterSection{
+    width: 55% !important;
+  }
+  
 }
 
 @media (max-width: 715px) {
@@ -612,7 +641,11 @@ small {
     margin-right: 10% !important;
     margin-left: 10% !important;
   }
+  .FilterSection{
+    width: 55% !important;
+  }
 }
+
 @media (max-width: 600px) {
 
   .miCard {
@@ -622,6 +655,9 @@ small {
   }
   input.searchBarInput{
     width: 50% !important;
+  }
+  .FilterSection{
+    width: 83% !important;
   }
 }
 
