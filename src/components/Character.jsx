@@ -11,7 +11,7 @@ export function Character(props) {
     const history = useHistory();
 
     const { character } = props; //Aqui saco character de props, es como que los deszipeo
-    console.log(character);
+    // console.log(character);
 
     const MiCard = styled(Grid)(({ theme }) => ({
         backgroundColor: "#3c3e44",

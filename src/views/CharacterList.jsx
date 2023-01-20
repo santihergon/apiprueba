@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory, } from "react-router-dom";
 import axios from "axios";
 import Pagination from "@mui/material/Pagination";
@@ -33,7 +33,7 @@ export function CharacterList(props) {
     });
   };
 
-  const llamaApi = (apiPage) => {
+  const llamaApi = useCallback((apiPage) => {
     let url = `https://rickandmortyapi.com/api/character/?page=${apiPage}`
     let characterList = null;
 
@@ -51,15 +51,15 @@ export function CharacterList(props) {
       .get(url)
       .then(function (response) {
         // handle success
-        console.log(JSON.stringify(response));
+        // console.log(JSON.stringify(response));
         setNPages(response.data.info.pages);
-        console.log(response.data.results);
+        // console.log(response.data.results);
         characterList = response.data.results;
         setCharacters([...characterList]);
         setCharacterFound(true);
         //localStorage.setItem("characterList", JSON.stringify(characterList));
         //localStorage.setItem("name", JSON.stringify(characterList[0].name));
-        console.log(filters);
+        // console.log(filters);
       })
       .catch(function (error) {
         // handle error
@@ -72,16 +72,17 @@ export function CharacterList(props) {
     // setCharacters(prevProducts => ([...prevProducts, []]));
     //let nameCharacter = JSON.parse(localStorage.getItem("nameCharacter"));
     //console.log("nameCharacter: " + nameCharacter);
-  };
+  },[filters.gender, filters.species, filters.status, history, live_status, search])
 
   useEffect(() => {
     console.log("Estamos en useEfect");
     if (!hasCalledAPI) {
+      console.log('hola')
       sethasCalledAPI(true);
       llamaApi(1);
     }
     console.log("FIN useEfect**");
-  }, [characters, hasCalledAPI, history.location.key]);
+  }, [hasCalledAPI, llamaApi]); //
 
   // const minWidth = window.matchMedia("(min-width: 768px)").matches;
 

@@ -22,10 +22,6 @@ export function EpisodeDetail(props) {
 
     const [personajes, setPersonajes] = useState([]);
 
-    useEffect(() => {
-    }, [history.location.key]);
-
-
     const handlePageChange = (event, value) => {
         setPage(value);
         llamaApi(value);
