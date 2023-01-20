@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory, } from "react-router-dom";
 import axios from "axios";
-import { styled } from "@mui/material";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
@@ -26,22 +15,12 @@ export function CharacterList(props) {
   const history = useHistory();
   const [hasCalledAPI, sethasCalledAPI] = useState(false);
   const [characters, setCharacters] = useState([]);
-  const [statusFilter, setStatusFilter] = useState(null);
   const [page, setPage] = useState(1);
   const [nPages, setNPages] = useState(1);
-  const [dead, setDead] = useState(false);
   const [search, setSearch] = useState("");
   const [characterFound, setCharacterFound] = useState(null);
 
-  const [filters, setFilters] = useState({
-    status: "",
-    species: "",
-    gender: "",
-  });
-
-  // useEffect(() => {
-  //   // Business logic to run when eleId updates
-  // }, [history.location.key]);
+  const [filters, setFilters] = useState({ status: "", species: "", gender: "", });
 
   const { live_status } = useParams();
 
@@ -64,7 +43,7 @@ export function CharacterList(props) {
       } else {
         history.push("/");
       }
-    }else{
+    } else {
       url += `&name=${search}&status=${filters.status}&species=${filters.species}&gender=${filters.gender}`; //Esto es un query parameter o GET parameter
     }
 
@@ -107,7 +86,6 @@ export function CharacterList(props) {
   // const minWidth = window.matchMedia("(min-width: 768px)").matches;
 
   return (
-    //Esto de la key que es?
     <section className="showcase" key={history.location.key}>
       <Search
         setSearch={setSearch}
@@ -120,18 +98,14 @@ export function CharacterList(props) {
         filters={filters}
         sethasCalledAPI={sethasCalledAPI}
       />}
-      
 
       {characters !== null && characterFound === true && (
-        <div>
+        <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
           {" "}
-          {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
           <Grid
             container
-            className="GridContainer"
-            sx={{
-              px: "3.5%",
-              py: "10px", //Contenedor Padre
+            className="GridContainer" sx={{
+              px: "3.5%", py: "10px", //Contenedor Padre
               "@media screen and (max-width: 1536px)": { px: "5%" },
               "@media screen and (max-width: 1200px)": { px: "5%" },
               "@media screen and (max-width: 900px)": { px: "5%" },

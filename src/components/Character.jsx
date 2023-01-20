@@ -6,11 +6,12 @@ import Grid from "@mui/material/Grid";
 
 export function Character(props) {
     //console.log('Estamos en character y recibimos');
-    //console.log(props);
+    // console.log(props);
 
     const history = useHistory();
 
-    const { character } = props;
+    const { character } = props; //Aqui saco character de props, es como que los deszipeo
+    console.log(character);
 
     const MiCard = styled(Grid)(({ theme }) => ({
         backgroundColor: "#3c3e44",

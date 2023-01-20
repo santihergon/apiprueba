@@ -41,7 +41,7 @@ export function LocationDetail(props) {
 
                 if (Array.isArray(listaPersonajes)) {
                     setPersonajes([...listaPersonajes]);
-                }else{
+                } else {
                     setPersonajes([listaPersonajes]);
                 }
             })
@@ -100,12 +100,12 @@ export function LocationDetail(props) {
         }
         console.log('FIN useEfect**')
 
-    }, [ hasCalledAPI, history.location.key]);
+    }, [hasCalledAPI, history.location.key]);
 
     return (
         <section className="showcase" key={history.location.key}>
             {personajes !== null &&
-                <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
+                <div>
                     <Grid container className='GridContainer' sx={{
                         px: '3.5%', py: '10px', //Contenedor Padre
                         '@media screen and (max-width: 1536px)': { px: '5%' },

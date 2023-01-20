@@ -4,13 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory, us
 import axios from "axios";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import Episode from "../components/Episode";
-import { styled } from "@mui/material";
-import Card from "@mui/material/Card";
 import Character from "../components/Character";
-import Search from "../layout/Search";
 
 
 export function EpisodeDetail(props) {
@@ -19,7 +14,6 @@ export function EpisodeDetail(props) {
     const [hasCalledAPI, sethasCalledAPI] = useState(false);
     const [episodes, setEpisodeList] = useState([]);
     const [page, setPage] = useState(1);
-    const [nPages, setNPages] = useState(1);
 
     const { episode } = props;
 
@@ -71,23 +65,18 @@ export function EpisodeDetail(props) {
                 console.log(response.data.results)
                 // handle success
 
-
                 episodeList = response.data.results;
 
                 console.log(episodeList);
 
                 //setEpisodeList([...episodeList]);
 
-
-
                 console.log("location.pathname: " + location.pathname);
-
 
                 // var parts = location.pathname.split('/');
                 // var linkId = parts.pop() || parts.pop();
 
                 console.log(episodeIdInt);
-
 
                 // let linkId = [];
 
@@ -95,7 +84,6 @@ export function EpisodeDetail(props) {
                 // linkId.push(splitted[splitted.length]);
 
                 // console.log("linkId: " + linkId);
-
 
                 let characterIdList = []
 
@@ -116,19 +104,12 @@ export function EpisodeDetail(props) {
                 // }
                 // response.data.characters.map(mifunc)
 
-
-
                 response.data.characters.map((character) => {
                     // console.log("Estamos en mapper de character: "+character)
-
                     const splitted = character.split('/');
                     characterIdList.push(splitted[splitted.length - 1]);
-
                 })
-
-
                 console.log(characterIdList);
-
                 axiosGetCharacters(characterIdList);
 
                 // console.log(response.data.results[linkId-1].characters);
@@ -161,33 +142,9 @@ export function EpisodeDetail(props) {
     }, [episodes, hasCalledAPI, history.location.key]);
 
     return (
-        // <section key={Episode.id}>
-        //     <h1>Episode
-
-        //         {personajes !== null &&
-        // <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
-        //   <Grid container className='GridContainer' sx={{px: '1%', py: '10px',
-        //     '@media screen and (max-width: 64em)': { px: '10px'} }}//Contenedor Padre
-        //   >
-        //     {personajes.map((character) => (
-        //       <Character character={character} key={character.id} />
-        //     ))}
-        //   </Grid>
-        //   <Stack spacing={2} className="paginacion">
-        //     <div className="tituloPaginacion">Page: {page}</div>
-        //     {/* {minWidth === true ? <Pagination className="elementospaginacion" count={nPages} page={page} onChange={handlePageChange} /> : <Pagination className="elementospaginacion" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
-        //     } */}
-        //     <Pagination className="elementospaginacion largePagination" count={nPages} page={page} onChange={handlePageChange} />
-        //     <Pagination className="elementospaginacion shortPagination" siblingCount={0} count={nPages} page={page} onChange={handlePageChange} />
-        //   </Stack>
-        // </div>}
-        //     </h1>
-
-        // </section>
-
         <section className="showcase" key={history.location.key}>
             {personajes !== null &&
-                <div> {/* Creo este div para después poder mostrar el mensaje de no se han encontrado caracteres */}
+                <div>
                     <Grid container className='GridContainer' sx={{
                         px: '3.5%', py: '10px', //Contenedor Padre
                         '@media screen and (max-width: 1536px)': { px: '5%' },

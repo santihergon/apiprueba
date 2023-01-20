@@ -42,7 +42,8 @@
   border-radius: 0.5rem;
   /* Link Styles */
 }
-.btnHeader.active{
+
+.btnHeader.active {
   color: var(--orange);
 }
 
@@ -68,25 +69,6 @@
   font-size: 5.9rem;
 }
 
-/* .section1 {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  flex-direction: column;
-  height: calc(50vh - 60px);
-  text-align: center;
-  position: relative;
-
-} */
-/* .fotoSection1 {
-
-  position: absolute;
-  width: 100%;
-  height: 100%;
-} */
-
 /* Showcase Styles */
 .showcase {
   margin-right: 0px;
@@ -99,14 +81,17 @@
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .characterNotFound {
   animation: fadeInAnimation cubic-bezier(0.4, 0, 1, 1) 0.3s;
   animation-iteration-count: 1;
@@ -119,6 +104,7 @@
   justify-content: center;
   margin-bottom: 30px;
 }
+
 input.searchBarInput {
   width: 40%;
   border: 2.5px solid transparent;
@@ -127,18 +113,24 @@ input.searchBarInput {
   padding: 10px 15px;
   transition: border 0.3s ease 0s;
 }
+
 input.searchBarInput:hover {
   border: 2.5px solid var(--orange);
 }
+
 input.searchBarInput:focus {
   outline: none;
 }
+
 input.searchBarInput::placeholder {
   font-weight: 600;
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif" !important;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "sans-serif" !important;
   font-size: 0.9rem;
   color: var(--light-dark);
 }
+
 .searchBarBtn {
   background-color: var(--light-dark);
   border-radius: 0.5rem;
@@ -150,10 +142,13 @@ input.searchBarInput::placeholder {
   transition: background-color 0.3s ease 0s;
   cursor: pointer;
   font-weight: 600;
-  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif" !important;
+  font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "sans-serif" !important;
   font-size: 1rem;
   color: white;
 }
+
 .searchBarBtn:hover {
   background-color: var(--orange);
 }
@@ -163,15 +158,6 @@ input.searchBarInput::placeholder {
   display: flex;
   justify-content: center;
 }
-
-/* .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-6.css-slheon:nth-child(2n+2) {
-    padding-left: 20px !important;
-    background-color: red;
-}
-.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-sm-6.MuiGrid-grid-md-6.css-slheon:nth-child(2n+1) {
-    background-color: blue;
-    border: 1px solid blue;
-} */
 
 /* .gridCards:nth-child(2n+1) {
   padding-right: 10px !important;
@@ -189,48 +175,57 @@ input.searchBarInput::placeholder {
 
 /* Filters */
 
-.FilterSection{
+.FilterSection {
   width: 46.5% !important;
   display: flex !important;
   margin: auto !important;
 }
 
-.MuiOutlinedInput-notchedOutline{/* Border Input*/
+.MuiOutlinedInput-notchedOutline {
+  /* Border Input*/
   border-color: var(--orange) !important;
   border: none !important;
   background-color: var(--light-dark) !important;
 }
-.css-2d5w1o-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline{ /* Border Input focused*/
+
+.css-2d5w1o-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  /* Border Input focused*/
   border: 2px solid var(--orange) !important;
 }
 
-.MuiSvgIcon-root{ /* Arrow Select */
+.MuiSvgIcon-root {
+  /* Arrow Select */
   fill: white !important;
   z-index: 1 !important;
-
 }
-.MuiOutlinedInput-input{ /* Text Select */
+
+.MuiOutlinedInput-input {
+  /* Text Select */
   color: white !important;
   z-index: 1 !important;
 }
-.clearFilterBtn{
+
+.clearFilterBtn {
   margin-right: 20px !important;
   transition: background-color 0.3s ease 0s !important;
 }
-.clearFilterBtn:hover{
+
+.clearFilterBtn:hover {
   background-color: #ffffff12 !important;
   z-index: 1 !important;
 }
 
-.MuiFormLabel-root{  /* Text Select Label */
+.MuiFormLabel-root {
+  /* Text Select Label */
   color: white !important;
   z-index: 1 !important;
 }
 
-.MuiInputLabel-root.Mui-focused {/* Text Label Border Select focused*/
+.MuiInputLabel-root.Mui-focused {
+  /* Text Label Border Select focused*/
   color: var(--orange) !important;
 }
-
 
 /* Botón go to top */
 .goTopBtn {
@@ -337,6 +332,7 @@ body::-webkit-scrollbar-thumb {
   margin-right: 4px;
   transition: color 0.3s ease 0s;
 }
+
 /* .characterStatusVivo:hover {
   color: var(--alive);
 } */
@@ -357,6 +353,7 @@ body::-webkit-scrollbar-thumb {
   margin-right: 4px;
   transition: color 0.3s ease 0s;
 }
+
 /* .characterStatusMuerto:hover {
   color: var(--dead);
 } */
@@ -377,6 +374,7 @@ body::-webkit-scrollbar-thumb {
   margin-right: 4px;
   transition: color 0.3s ease 0s;
 }
+
 /* .characterStatusDesconocido:hover {
   color: var(--unknown);
 } */
@@ -388,10 +386,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .miCard {
-  /* width: 600px;
-  height: 220px; */
   display: flex;
-  /* margin-bottom: 0.75rem; */
   background: var(--light-dark) !important;
   border-radius: 0.5rem;
   box-shadow: #0000001a 0px 4px 6px -1px, #0000000f 0px 2px 4px -1px;
@@ -420,38 +415,47 @@ body::-webkit-scrollbar-thumb {
   color: white;
   margin-top: 16px;
 }
+
 .elementospaginacion button {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 16px;
 }
+
 .MuiPaginationItem-ellipsis {
   font-size: 16px !important;
   font-weight: 600 !important;
   margin-bottom: 16px !important;
 }
+
 .MuiPaginationItem-root.MuiPaginationItem-ellipsis:hover {
   background-color: transparent !important;
 }
+
 .paginacion {
   align-content: center;
   flex-wrap: wrap;
-  width: auto; /*En el material ui hacer con col md y col xs*/
+  width: auto;
+  /*En el material ui hacer con col md y col xs*/
   margin-right: 34% !important;
   margin-left: 34% !important;
   background-color: var(--light-dark);
   border-radius: 0.5rem;
   margin-top: 30px;
 }
+
 .largePagination {
   display: block;
 }
+
 .shortPagination {
   display: none;
 }
+
 .MuiPaginationItem-root {
   color: white !important;
 }
+
 .MuiPaginationItem-root:hover {
   background-color: #0000001f !important;
 }
@@ -591,7 +595,8 @@ small {
     margin-right: 30% !important;
     margin-left: 30% !important;
   }
-  .FilterSection{
+
+  .FilterSection {
     width: 53% !important;
   }
 }
@@ -611,10 +616,9 @@ small {
     height: initial;
     width: auto !important;
   } */
-  .FilterSection{
+  .FilterSection {
     width: 55% !important;
   }
-  
 }
 
 @media (max-width: 715px) {
@@ -629,6 +633,7 @@ small {
   .largePagination {
     display: none;
   }
+
   .shortPagination {
     display: block;
   }
@@ -641,39 +646,24 @@ small {
     margin-right: 10% !important;
     margin-left: 10% !important;
   }
-  .FilterSection{
+
+  .FilterSection {
     width: 55% !important;
   }
 }
 
 @media (max-width: 600px) {
-
   .miCard {
     /* flex-direction: column !important; */
     height: initial;
     width: auto !important;
   }
-  input.searchBarInput{
+
+  input.searchBarInput {
     width: 50% !important;
   }
-  .FilterSection{
+
+  .FilterSection {
     width: 83% !important;
   }
 }
-
-
-/* .cardContent {
-    flex-direction: column;
-  }
-
-  .characterCard__Img {
-    width: 100%;
-  }
-
-  .css-1nsxlg2>.MuiGrid-item {
-    padding-left: 20px !important;
-  } */
-
-/* .css-27y6a6-MuiGrid-root>.MuiGrid-item {
-    padding-left: 20px !important;
-  } */
