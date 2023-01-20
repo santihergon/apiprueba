@@ -18,9 +18,7 @@ export function EpisodeList() {
   const [nPages, setNPages] = useState(1);
 
 
-  useEffect(() => {
-  }, [history.location.key]);
-
+  
 
   const handlePageChange = (event, value) => {
     setPage(value);
@@ -79,7 +77,7 @@ export function EpisodeList() {
     }
     console.log('FIN useEfect**')
 
-  }, [episodes, hasCalledAPI, history.location.key]);
+  }, [hasCalledAPI]);
 
   return (
     <section className="showcase">

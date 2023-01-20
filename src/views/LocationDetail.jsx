@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useHistory, useLocation } from "react-router-dom";
 
 import axios from "axios";
@@ -22,9 +22,6 @@ export function LocationDetail(props) {
 
     const [personajes, setPersonajes] = useState([]);
     const [personaje, setPersonaje] = useState();
-
-    useEffect(() => {
-    }, [history.location.key]);
 
     const location = useLocation();
 
@@ -53,8 +50,7 @@ export function LocationDetail(props) {
                 // always executed
             });
     }
-
-    const llamaApi = () => {
+    const llamaApi = useCallback(() => {
         let locationList = null;
         let url = `https://rickandmortyapi.com/api/location/${locationIdInt}`;
 
@@ -90,7 +86,7 @@ export function LocationDetail(props) {
             .finally(function () {
                 // always executed
             });
-    }
+    }, [location.pathname, locationIdInt])
 
     useEffect(() => {
         console.log("Estamos en useEfect");
@@ -100,7 +96,7 @@ export function LocationDetail(props) {
         }
         console.log('FIN useEfect**')
 
-    }, [hasCalledAPI, history.location.key]);
+    }, [hasCalledAPI, llamaApi]);
 
     return (
         <section className="showcase" key={history.location.key}>
